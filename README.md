@@ -1,5 +1,5 @@
 # Think Toilet - [IADE](https://www.iade.europeia.pt/) - [UE](https://www.europeia.pt/)  
-![iade_ue_normal_rgb](https://github.com/user-attachments/assets/04a61ea7-1f25-460b-bff3-3089f3972a3e)
+![IADE LOGO PNG](Documentos/images/iade_logo.png)
 **Universidade:** [Universidade Europeia](https://www.europeia.pt/)  
 **Faculdade:** [IADE - Faculdade de Design, Tecnologia e Comunicação](https://www.iade.europeia.pt/)  
 **Repositório:** [think-toilet](https://github.com/nycocado/think-toilet)  
