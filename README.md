@@ -172,7 +172,7 @@ Por meio dessa integração de disciplinas, nosso projeto ganhará uma base sól
 	- Polimorfismo de Componentes
 	- Kotlin
 - Conceitos de Programação de Algoritmos 
-	- Sistema de Algoritmos 
+	- Sistema de Otimização 
 - Conceitos Redes e Comunicação
 - Metodologia de Investigação
 
