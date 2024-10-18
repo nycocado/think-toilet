@@ -154,13 +154,11 @@ Por meio dessa integração de disciplinas, nosso projeto ganhará uma base sól
 	- Modificadores de Acesso
 	- Polimorfismo
 	- Encapsulamento
-- Arquitetura de Banco de Dados
-- Manipulação de Banco de Dados
-	- Arquitetura de Banco de Dados
-	- Manipulação de Banco de Dados
+- Arquitetura e Manipulação de Banco de Dados
 - Matemática
 	- Matematica Booliana
-	- Matematica Discreta 
+	- Matematica Discreta
+ 	- Álgebra Linear	
 	- Conceitos de Conjuntos
 	- Lógica Sequencial
 - Conceitos Técnicos da Framework Spring Boot
