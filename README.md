@@ -134,7 +134,7 @@ Na disciplina de Programação Orientada a Objetos, utilizaremos o **[Spring Bo
 
 **Bases de Dados**
 
-Para o gerenciamento e armazenamento de informações, utilizaremos os conhecimentos adquiridos na disciplina de Bases de Dados. A partir das lições dessa matéria, seremos capazes de criar um banco de dados eficiente, projetando tabelas e relacionamentos adequados para suportar as funcionalidades do aplicativo. Após a construção do banco de dados, faremos a conexão entre a interface (desenvolvida com Kotlin) e o banco de dados por meio do Spring Boot, permitindo que o sistema armazene e recupere informações de forma eficiente.
+Para o gerenciamento e armazenamento de informações, utilizaremos os conhecimentos adquiridos na disciplina de Bases de Dados. A partir das lições dessa matéria, seremos capazes de criar um banco de dados eficiente, projetando tabelas e relacionamentos adequados para suportar as funcionalidades do aplicativo. Após a construção do banco de dados, faremos a conexão entre a interface (desenvolvida com Kotlin) e o banco de dados por meio do Spring Boot.
 
 **Matemática Discreta**
 
@@ -144,3 +144,35 @@ A lógica por trás do funcionamento do banco de dados, assim como do front-end 
 
 A disciplina de Competências Comunicacionais será essencial para aprimorar as habilidades de comunicação da equipe durante o desenvolvimento do projeto. Isso inclui tanto a comunicação interna (entre os membros do time) quanto a comunicação externa (com clientes e usuários). Além disso, esta matéria fornecerá feedback constante sobre o design e desenvolvimento pessoal, ajudando a aprimorar a interação e a interface com o usuário, garantindo que o projeto atenda às expectativas de todos os envolvidos.
 Por meio dessa integração de disciplinas, nosso projeto ganhará uma base sólida, desde a estruturação do sistema até a entrega de uma aplicação eficiente e bem planejada.
+
+### Requisitos Técnicos
+
+- Conceitos Avançados em Programação em Java
+	- Classes
+	- Métodos
+	- Construtores
+	- Modificadores de Acesso
+	- Polimorfismo
+	- Encapsulamento
+- Arquitetura de Banco de Dados
+- Manipulação de Banco de Dados
+	- Arquitetura de Banco de Dados
+	- Manipulação de Banco de Dados
+- Matemática
+	- Matematica Booliana
+	- Matematica Discreta 
+	- Conceitos de Conjuntos
+	- Lógica Sequencial
+- Conceitos Técnicos da Framework Spring Boot
+	- Criar Servidor
+	- Sistema de Requisição
+	- Protocolos
+- Programação Mobile
+	- Sistema de Herança
+	- Polimorfismo de Componentes
+	- Kotlin
+- Conceitos de Programação de Algoritmos 
+	- Sistema de Algoritmos 
+- Conceitos Redes e Comunicação
+- Metodologia de Investigação
+
