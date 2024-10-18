@@ -121,29 +121,18 @@ O projeto **[Think Toilet](https://github.com/nycocado/think-toilet)** visa dese
 ### Enquadramento das Unidades Curriculares
 
 **Projeto de Desenvolvimento**
-
-Nesta disciplina, seremos orientados a organizar e planejar todas as etapas do projeto. Ferramentas de gestão de projetos serão aplicadas para garantir que todas as atividades sejam realizadas de forma eficiente e dentro do prazo. Além disso, feedbacks constantes de design e desenvolvimento pessoal, fornecidos pelas aulas de "Competências Comunicacionais", serão usados para melhorar a qualidade do projeto, ajudando a desenvolver tanto habilidades técnicas quanto interpessoais.
-
+Nesta disciplina, seremos orientados a organizar e planejar todas as etapas do projeto. Ferramentas de gestão de projetos serão aplicadas para garantir que todas as atividades sejam realizadas de forma eficiente e dentro do prazo. Além disso, feedbacks constantes de design e desenvolvimento pessoal, fornecidos pelas aulas de Competências Comunicacionais, serão usados para melhorar a qualidade do projeto, ajudando a desenvolver tanto habilidades técnicas quanto interpessoais.
 **Programação Mobile**
-
-Para o desenvolvimento mobile, utilizaremos **[Kotlin](https://kotlinlang.org)** como linguagem principal. Iniciaremos a implementação dos componentes de front-end, construindo elementos que possuem características comuns e são repetidos em várias partes da aplicação. Esses elementos são chamados de templates ou componentes reutilizáveis. A partir desses componentes principais, será possível criar várias páginas no aplicativo, variando conforme a necessidade, mas mantendo consistência e eficiência. A abordagem modular e reutilizável facilita a manutenção e a escalabilidade do aplicativo.
-
+Para o desenvolvimento mobile, utilizaremos **[Kotlin](https://kotlinlang.org)** como linguagem principal, junto com Jetpack Compose no **[Android Studio](https://developer.android.com)**. Iniciaremos a implementação de componentes de front-end, criando templates ou componentes reutilizáveis que serão utilizados em várias partes da aplicação. Essa abordagem modular facilita a manutenção e a escalabilidade. Além disso, implementaremos funcionalidades e integrações com APIs externas, como o Google Maps, além de exibir dados dinâmicos, como avaliações de casas de banho e rotas.
 **Programação Orientada a Objetos**
-
-Na disciplina de Programação Orientada a Objetos, utilizaremos o **[Spring Boot](https://spring.io/solutions)** como framework principal para o desenvolvimento do back-end, conectando a interface com o banco de dados. Aprenderemos a organizar o projeto utilizando o padrão arquitetônico MVC (Model-View-Controller), que separa a lógica de negócios, a interface do usuário e a manipulação de dados em três componentes distintos. Além disso, aplicaremos os conceitos de herança e polimorfismo, fundamentais na linguagem Java, para estruturar nosso código de forma mais eficiente e escalável.
-
+Na disciplina de Programação Orientada a Objetos, utilizaremos o **[Spring Boot](https://spring.io)** como framework principal para o desenvolvimento do back-end, conectando a interface com o banco de dados. Aprenderemos a organizar o projeto utilizando o padrão arquitetônico MVC (Model-View-Controller), que separa a lógica de negócios, a interface do usuário e a manipulação de dados em três componentes distintos. Além disso, aplicaremos os conceitos de herança e polimorfismo, fundamentais na linguagem Java, para estruturar nosso código de forma mais eficiente e escalável.
 **Bases de Dados**
-
-Para o gerenciamento e armazenamento de informações, utilizaremos os conhecimentos adquiridos na disciplina de Bases de Dados. A partir das lições dessa matéria, seremos capazes de criar um banco de dados eficiente, projetando tabelas e relacionamentos adequados para suportar as funcionalidades do aplicativo. Após a construção do banco de dados, faremos a conexão entre a interface (desenvolvida com Kotlin) e o banco de dados por meio do Spring Boot.
-
+Para o gerenciamento e armazenamento de informações, utilizaremos SQL. Com os conhecimentos adquiridos na disciplina de Bases de Dados, desenvolveremos uma base de dados relacional para armazenar as informações. Após a construção do banco de dados, faremos a conexão entre a interface (desenvolvida em Kotlin) e o banco de dados por meio do Spring Boot.
 **Matemática Discreta**
-
-A lógica por trás do funcionamento do banco de dados, assim como do front-end e da implementação do servidor no back-end, será fundamentada em conceitos aprendidos na disciplina de Matemática Discreta. Conceitos como grafos, lógica proposicional e teoria dos conjuntos serão aplicados para resolver problemas de organização e acesso eficiente a dados, além de garantir que a lógica de controle e validação seja sólida e segura.
-
+A lógica por trás do funcionamento do banco de dados, assim como do front-end e da implementação do servidor no back-end, será fundamentada em conceitos aprendidos na disciplina de Matemática Discreta. Conceitos como grafos, lógica proposicional e teoria dos conjuntos serão aplicados para resolver problemas de organização e acesso eficiente a dados, além de garantir que a lógica de controle e validação seja sólida e segura.
 **Competências Comunicacionais**
+A disciplina de Competências Comunicacionais será essencial para aprimorar as habilidades de comunicação da equipe durante o desenvolvimento do projeto. Isso inclui tanto a comunicação interna (entre os membros do time) quanto a comunicação externa (com clientes e usuários). Além disso, esta matéria fornecerá feedback constante sobre o design e desenvolvimento pessoal, ajudando a aprimorar a interação e a interface com o usuário, garantindo que o projeto atenda às expectativas de todos os envolvidos. Por meio dessa integração de disciplinas, nosso projeto ganhará uma base sólida, desde a estruturação do sistema até a entrega de uma aplicação eficiente e bem planejada.
 
-A disciplina de Competências Comunicacionais será essencial para aprimorar as habilidades de comunicação da equipe durante o desenvolvimento do projeto. Isso inclui tanto a comunicação interna (entre os membros do time) quanto a comunicação externa (com clientes e usuários). Além disso, esta matéria fornecerá feedback constante sobre o design e desenvolvimento pessoal, ajudando a aprimorar a interação e a interface com o usuário, garantindo que o projeto atenda às expectativas de todos os envolvidos.
-Por meio dessa integração de disciplinas, nosso projeto ganhará uma base sólida, desde a estruturação do sistema até a entrega de uma aplicação eficiente e bem planejada.
 
 ### Requisitos Técnicos
 
