@@ -23,6 +23,7 @@
     - [Terceiro Caso](#3ª-caso---pesquisar-casa-de-banho-especifica)
 - [Project Charter](#project-charter)
     - [Descrição da Solução](#descrição-da-solução)
+    - [Enquadramento nas Unidades Curriculares](#enquadramento-nas-unidades-curriculares)
 
 ## Elementos do Grupo:
 - [Nycolas Souza](https://github.com/nycocado) - 20230989
@@ -33,7 +34,7 @@
 Localizador; Avaliação; Sanitários; Casa de banho; Público; Privada; Busca; Próximas; Aplicação; Mobile; Guia; Navegação; Google Maps; Encontrar; Rotas; Busca; Mapa; Interativo; App; Recomendação;
 
 ## Descrição
-O **[Think Toilet](https://github.com/nycocado/think-toilet)** é uma aplicação móvel projetada para resolver um problema comum: localizar casas de banho limpas e acessíveis. Muitas vezes, as pessoas enfrentam dificuldades para encontrar uma casa de banho, especialmente em situações de emergência ou em áreas desconhecidas.
+O **Think Toilet** é uma aplicação móvel projetada para resolver um problema comum: localizar casas de banho limpas e acessíveis. Muitas vezes, as pessoas enfrentam dificuldades para encontrar uma casa de banho, especialmente em situações de emergência ou em áreas desconhecidas.
 
 A aplicação permite que os usuários encontrem as casas de banho mais bem avaliadas nas proximidades, em restaurantes, cafés, shoppings e outros estabelecimentos privados, além de espaços públicos. Com um sistema de avaliação integrado, os usuários podem compartilhar suas experiências e sugerir novos locais, enriquecendo o banco de dados da aplicação. Além disso, o Think Toilet oferece um mapa interativo com rotas diretas até os banheiros, utilizando o Google Maps para uma navegação fácil e eficiente.
 
@@ -116,4 +117,11 @@ Este caso trata da busca por uma casa de banho específica pelo utilizador:
 
 ## Project Charter
 ### Descrição da Solução
-O projeto **[Think Toilet](https://github.com/nycocado/think-toilet)** visa desenvolver uma aplicação móvel que facilita a localização e avaliação de casas de banho próximas. A aplicação exibe um mapa interativo destacando as casas de banho mais bem avaliadas e fornece informações como preço, acessibilidade e se o uso é gratuito, público ou restrito a clientes. Os utilizadores podem avaliar aspetos como limpeza, disponibilidade de papel e estrutura, além de deixar comentários sobre as suas experiências. A aplicação também permite que os utilizadores sugiram novas casas de banho e denunciem locais ou comentários inadequados. Para incentivar a participação, existe um sistema de pontuação que gamifica a experiência do utilizador. Integrada ao Google Maps, a aplicação oferece rotas diretas para facilitar o acesso à casa de banho selecionada.
+O projeto **Think Toilet** visa desenvolver uma aplicação móvel que facilita a localização e avaliação de casas de banho próximas. A aplicação exibe um mapa interativo destacando as casas de banho mais bem avaliadas e fornece informações como preço, acessibilidade e se o uso é gratuito, público ou restrito a clientes. Os utilizadores podem avaliar aspetos como limpeza, disponibilidade de papel e estrutura, além de deixar comentários sobre as suas experiências. A aplicação também permite que os utilizadores sugiram novas casas de banho e denunciem locais ou comentários inadequados. Para incentivar a participação, existe um sistema de pontuação que gamifica a experiência do utilizador. Integrada ao Google Maps, a aplicação oferece rotas diretas para facilitar o acesso à casa de banho selecionada.
+
+### Enquadramento nas Unidades Curriculares
+- **Programação de Dispositivos Móveis:** A aplicação será desenvolvida em Kotlin, utilizando Jetpack Compose no Android Studio. Serão implementadas funcionalidades como navegação por mapas, interação com APIs externas (como Google Maps) e exibição de dados dinâmicos, como avaliações de casas de banho e rotas.
+- **Programação Orientada por Objetos:** O servidor será desenvolvido em Java com Spring Boot, aplicando os princípios de programação orientada por objetos. Serão criados serviços REST para a comunicação entre o backend e a aplicação, gerindo dados como casas de banho, avaliações e utilizadores.
+- **Bases de Dados:** Utilizando SQL, será criada uma base de dados relacional para armazenar informações sobre utilizadores, casas de banho, avaliações e sugestões. A modelação das tabelas e consultas eficientes garantirão uma boa performance do sistema e integridade dos dados.
+- **Projeto de Desenvolvimento Móvel:** Focada na gestão do projeto, esta unidade irá envolver a coordenação do desenvolvimento, a criação de relatórios e apresentações e a integração dos vários componentes desenvolvidos nas outras disciplinas.
+- **Matemática Discreta:** Aplicação de conceitos de lógica e conjuntos na análise de dados recebidos da aplicação, incluindo avaliações de utilizadores e a implementação de algoritmos para ordenação e filtragem de casas de banho e sistemas de pontuação para gamificação.
