@@ -117,11 +117,43 @@ Este caso trata da busca por uma casa de banho específica pelo utilizador:
 
 ## Project Charter
 ### Descrição da Solução
-O projeto **Think Toilet** visa desenvolver uma aplicação móvel que facilita a localização e avaliação de casas de banho próximas. A aplicação exibe um mapa interativo destacando as casas de banho mais bem avaliadas e fornece informações como preço, acessibilidade e se o uso é gratuito, público ou restrito a clientes. Os utilizadores podem avaliar aspetos como limpeza, disponibilidade de papel e estrutura, além de deixar comentários sobre as suas experiências. A aplicação também permite que os utilizadores sugiram novas casas de banho e denunciem locais ou comentários inadequados. Para incentivar a participação, existe um sistema de pontuação que gamifica a experiência do utilizador. Integrada ao Google Maps, a aplicação oferece rotas diretas para facilitar o acesso à casa de banho selecionada.
+O projeto **[Think Toilet](https://github.com/nycocado/think-toilet)** visa desenvolver uma aplicação móvel que facilita a localização e avaliação de casas de banho próximas. A aplicação exibe um mapa interativo destacando as casas de banho mais bem avaliadas e fornece informações como preço, acessibilidade e se o uso é gratuito, público ou restrito a clientes. Os utilizadores podem avaliar aspetos como limpeza, disponibilidade de papel e estrutura, além de deixar comentários sobre as suas experiências. A aplicação também permite que os utilizadores sugiram novas casas de banho e denunciem locais ou comentários inadequados. Para incentivar a participação, existe um sistema de pontuação que gamifica a experiência do utilizador. Integrada ao Google Maps, a aplicação oferece rotas diretas para facilitar o acesso à casa de banho selecionada.
 
-### Enquadramento nas Unidades Curriculares
-- **Programação de Dispositivos Móveis:** A aplicação será desenvolvida em Kotlin, utilizando Jetpack Compose no Android Studio. Serão implementadas funcionalidades como navegação por mapas, interação com APIs externas (como Google Maps) e exibição de dados dinâmicos, como avaliações de casas de banho e rotas.
-- **Programação Orientada por Objetos:** O servidor será desenvolvido em Java com Spring Boot, aplicando os princípios de programação orientada por objetos. Serão criados serviços REST para a comunicação entre o backend e a aplicação, gerindo dados como casas de banho, avaliações e utilizadores.
-- **Bases de Dados:** Utilizando SQL, será criada uma base de dados relacional para armazenar informações sobre utilizadores, casas de banho, avaliações e sugestões. A modelação das tabelas e consultas eficientes garantirão uma boa performance do sistema e integridade dos dados.
-- **Projeto de Desenvolvimento Móvel:** Focada na gestão do projeto, esta unidade irá envolver a coordenação do desenvolvimento, a criação de relatórios e apresentações e a integração dos vários componentes desenvolvidos nas outras disciplinas.
-- **Matemática Discreta:** Aplicação de conceitos de lógica e conjuntos na análise de dados recebidos da aplicação, incluindo avaliações de utilizadores e a implementação de algoritmos para ordenação e filtragem de casas de banho e sistemas de pontuação para gamificação.
+### Enquadramento das Unidades Curriculares
+#### Projeto de Desenvolvimento
+Nesta disciplina, iremos planear e gerir todas as etapas do projeto, utilizando ferramentas de gestão para garantir a execução eficiente e dentro dos prazos. Feedbacks de design e desenvolvimento pessoal serão usados para melhorar a qualidade do projeto e desenvolver habilidades técnicas e interpessoais.
+
+#### Programação Mobile
+Para o desenvolvimento mobile, usaremos **[Kotlin](https://kotlinlang.org)** como linguagem principal, com **[Jetpack Compose](https://developer.android.com/compose)** no **[Android Studio](https://developer.android.com)**. Começaremos pela implementação de componentes de front-end, criando templates reutilizáveis para diferentes partes da aplicação, o que facilita a manutenção e escalabilidade. Além disso, integraremos APIs externas, como o **[Google Maps API](https://developers.google.com/maps)**, e exibiremos dados dinâmicos, como avaliações e rotas para casas de banho.
+
+#### Programação Orientada a Objetos
+Nesta disciplina, usaremos o **[Spring Boot](https://spring.io)** para o back-end, conectando a interface ao banco de dados. O projeto seguirá a arquitetura **REST**, criando APIs que facilitam a comunicação entre o front-end e o back-end. Será utilizado o padrão **MVC** (Model-View-Controller) para separar a lógica de negócios, a interface e os dados. Conceitos como herança e polimorfismo também serão aplicados para otimizar o código em **[Java](https://www.java.com/pt-BR/)**.
+
+#### Bases de Dados
+Para gerenciar e armazenar informações, utilizaremos **[MySQL](https://www.mysql.com/)** para criar uma base de dados relacional. Aplicaremos os conhecimentos da disciplina de Bases de Dados para garantir uma estrutura eficiente. Após a criação do banco, conectaremos a interface desenvolvida em **[Kotlin](https://kotlinlang.org)** ao banco de dados usando o **[Spring Boot](https://spring.io)**.
+
+#### Matemática Discreta
+A disciplina de Matemática Discreta fornecerá a lógica necessária para o funcionamento do banco de dados, front-end e back-end. Conceitos como grafos, lógica proposicional e teoria dos conjuntos serão utilizados para resolver problemas de organização e acesso eficiente a dados, garantindo uma lógica de controle e validação robusta e segura.
+
+#### Competências Comunicacionais
+Esta disciplina será essencial para melhorar a comunicação interna da equipa e externa com clientes e utilizadores. Também fornecerá feedback sobre design e desenvolvimento pessoal, ajudando a melhorar a interface e a experiência do utilizador, garantindo que o projeto atenda às expectativas.
+
+### Requisitos Técnicos
+- **Desenvolvimento Móvel:**
+  - Linguagem: **[Kotlin](https://kotlinlang.org)** com **[Jetpack Compose](https://developer.android.com/compose)**
+  - Mínimo: Android 9
+  - SDK: **[Android SDK 28](https://developer.android.com/tools/releases/platforms#9.0)**
+  - Navegação e interação com o usuário
+  - Integração com APIs externas (ex.: **[Google Maps API](https://developers.google.com/maps)**)
+- **Desenvolvimento Back-End:**
+  - Spring Boot como framework principal
+  - Arquitetura REST para comunicação entre front-end e back-end
+  - Manipulação de dados com SQL
+- **Bases de Dados:**
+  - Utilização do **[MySQL](https://www.mysql.com/)** para a criação de uma base de dados relacional
+  - Conexão entre o banco de dados e a aplicação via **[Spring Boot](https://spring.io)**
+- **Prototipação:**
+  - Software: **[Figma](https://www.figma.com/)** para design e prototipagem da interface do usuário
+- **Comunicação e Feedback:**
+  - Estabelecimento de canais de comunicação eficazes
+  - Coleta de feedback sobre design e interação com o usuário
