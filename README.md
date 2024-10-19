@@ -24,6 +24,7 @@
 - [Project Charter](#project-charter)
     - [Descrição da Solução](#descrição-da-solução)
     - [Enquadramento nas Unidades Curriculares](#enquadramento-nas-unidades-curriculares)
+    - [Requisitos Técnicos](#requisitos-técnicos)
 
 ## Elementos do Grupo:
 - [Nycolas Souza](https://github.com/nycocado) - 20230989
@@ -139,21 +140,25 @@ A disciplina de Matemática Discreta fornecerá a lógica necessária para o fun
 Esta disciplina será essencial para melhorar a comunicação interna da equipa e externa com clientes e utilizadores. Também fornecerá feedback sobre design e desenvolvimento pessoal, ajudando a melhorar a interface e a experiência do utilizador, garantindo que o projeto atenda às expectativas.
 
 ### Requisitos Técnicos
-- **Desenvolvimento Móvel:**
-  - Linguagem: **[Kotlin](https://kotlinlang.org)** com **[Jetpack Compose](https://developer.android.com/compose)**
-  - Mínimo: Android 9
-  - SDK: **[Android SDK 28](https://developer.android.com/tools/releases/platforms#9.0)**
-  - Navegação e interação com o usuário
-  - Integração com APIs externas (ex.: **[Google Maps API](https://developers.google.com/maps)**)
-- **Desenvolvimento Back-End:**
-  - Spring Boot como framework principal
-  - Arquitetura REST para comunicação entre front-end e back-end
-  - Manipulação de dados com SQL
-- **Bases de Dados:**
-  - Utilização do **[MySQL](https://www.mysql.com/)** para a criação de uma base de dados relacional
-  - Conexão entre o banco de dados e a aplicação via **[Spring Boot](https://spring.io)**
-- **Prototipação:**
-  - Software: **[Figma](https://www.figma.com/)** para design e prototipagem da interface do usuário
-- **Comunicação e Feedback:**
-  - Estabelecimento de canais de comunicação eficazes
-  - Coleta de feedback sobre design e interação com o usuário
+#### Desenvolvimento Móvel
+- Linguagem: **[Kotlin](https://kotlinlang.org)** com **[Jetpack Compose](https://developer.android.com/compose)**.
+- Mínimo: Android 9.
+- SDK: **[Android SDK 28](https://developer.android.com/tools/releases/platforms#9.0)**.
+- Navegação e interação com o usuário.
+- Integração com APIs externas (ex.: **[Google Maps API](https://developers.google.com/maps)**).
+
+#### Desenvolvimento Back-End
+- Spring Boot como framework principal.
+- Arquitetura REST para comunicação entre front-end e back-end.
+- Manipulação de dados com SQL.
+
+#### Bases de Dados
+- Utilização do **[MySQL](https://www.mysql.com/)** para a criação de uma base de dados relacional.
+- Conexão entre o banco de dados e a aplicação via **[Spring Boot](https://spring.io)**.
+
+#### Prototipação
+- Software: **[Figma](https://www.figma.com/)** para design e prototipagem da interface do usuário.
+
+#### Comunicação e Feedback
+- Estabelecimento de canais de comunicação eficazes.
+- Coleta de feedback sobre design e interação com o usuário.
