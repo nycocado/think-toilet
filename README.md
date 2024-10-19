@@ -9,22 +9,34 @@
 - [Elementos do Grupo](#elementos-do-grupo)
 - [Palavras-Chave](#palavras-chave)
 - [Descrição](#descrição)
-    - [Motivação](#motivação)
-    - [Objetivo](#objetivos)
+  - [Motivação](#motivação)
+  - [Objetivo](#objetivos)
 - [Público Alvo](#público-alvo)
 - [Pesquisa de Mercado](#pesquisa-de-mercado)
-    - [Where is the Toilet](#where-is-the-toilet)
-    - [Berlin Toilet](#berlin-toilet)
-    - [Flush](#flush)
-    - [Where is Public Toilet](#where-is-public-toilet)
+  - [Where is the Toilet](#where-is-the-toilet)
+  - [Berlin Toilet](#berlin-toilet)
+  - [Flush](#flush)
+  - [Where is Public Toilet](#where-is-public-toilet)
 - [Guiões de Teste](#guiões-de-teste)
-    - [Primeiro Caso (Core)](#1ª-caso-core---localizar-a-melhor-casa-de-banho-próxima)
-    - [Segundo Caso](#2ª-caso---feedback-da-casa-de-banho)
-    - [Terceiro Caso](#3ª-caso---pesquisar-casa-de-banho-especifica)
-- [Project Charter](#project-charter)
-    - [Descrição da Solução](#descrição-da-solução)
-    - [Enquadramento nas Unidades Curriculares](#enquadramento-nas-unidades-curriculares)
-    - [Requisitos Técnicos](#requisitos-técnicos)
+  - [Primeiro Caso (Core)](#primeiro-caso-core---localizar-a-melhor-casa-de-banho-próxima)
+  - [Segundo Caso](#segundo-caso---feedback-da-casa-de-banho)
+  - [Terceiro Caso](#terceiro-caso---pesquisar-casa-de-banho-específica)
+- [Plano de Trabalho](#plano-de-trabalho)
+- [Descrição da Solução](#descrição-da-solução)
+- [Enquadramento nas Unidades Curriculares](#enquadramento-nas-unidades-curriculares)
+  - [Programação de Dispositivos Móveis](#programação-de-dispositivos-móveis)
+  - [Programação Orientada por Objetos](#programação-orientada-por-objetos)
+  - [Bases de Dados](#bases-de-dados)
+  - [Mátematica Discreta](#matemática-discreta)
+  - [Projeto de Desenvolvimento Móvel](#projeto-de-desenvolvimento-móvel)
+  - [Competencias Comunicacionais](#competências-comunicacionais)
+- [Requisitos Técnicos](#requisitos-técnicos)
+  - [Requisitos Funcionais](#requisitos-funcionais)
+  - [Requisitos Não Funcionais](#requisitos-não-funcionais)
+- [Arquitetura da Solução](#arquitetura-da-solução)
+  - [Components da Arquitetura](#componentes-da-arquitetura)
+  - [Fluxo de Dados](#fluxo-de-dados)
+- [Tecnologias](#tecnologias)
 
 ## Elementos do Grupo:
 - [Nycolas Souza](https://github.com/nycocado) - 20230989
@@ -36,8 +48,6 @@ Localizador; Avaliação; Sanitários; Casa de banho; Público; Privada; Busca; 
 
 ## Descrição
 O **Think Toilet** é uma aplicação móvel projetada para resolver um problema comum: localizar casas de banho limpas e acessíveis. Muitas vezes, as pessoas enfrentam dificuldades para encontrar uma casa de banho, especialmente em situações de emergência ou em áreas desconhecidas.
-
-A aplicação permite que os usuários encontrem as casas de banho mais bem avaliadas nas proximidades, em restaurantes, cafés, shoppings e outros estabelecimentos privados, além de espaços públicos. Com um sistema de avaliação integrado, os usuários podem compartilhar suas experiências e sugerir novos locais, enriquecendo o banco de dados da aplicação. Além disso, o Think Toilet oferece um mapa interativo com rotas diretas até os banheiros, utilizando o Google Maps para uma navegação fácil e eficiente.
 
 ### Motivação
 O **"Spreadshit"** foi um evento muito famoso em 2022 que se tornou viral nas redes sociais. Durante esse período, popularizou-se a prática de fazer reviews humorísticas sobre casas de banho. Esse fenômeno foi impulsionado pela pandemia de COVID-19, que resultou no fechamento de muitas casas de banho públicas, tornando a busca por um banheiro acessível um verdadeiro desafio para muitas pessoas.
@@ -52,7 +62,6 @@ Além disso, a maioria dos sistemas de busca para casas de banho não é devidam
 - Permitir um ambiente saudável para o desenvolvimento da comunidade.
 - Avaliação e feedback contínuos.
 - Integração com mapas e navegação.
-- A comunidade terá um papel ativo na implementação de novas casas de banho.
 
 ## Público-Alvo
 O público-alvo da aplicação **Think Toilet** inclui:
@@ -67,7 +76,7 @@ A nossa pesquisa sobre aplicativos para busca de casas de banho foi um dos princ
 ### [Where is the Toilet](https://play.google.com/store/apps/details?id=com.iisrl.toilet.star.toilet_star&hl=pt_PT)
 A aplicação funciona como um localizador de casas de banho, permitindo avaliações e a criação de novas.
 - **Pontos Positivos:** Interface limpa, sem informações desnecessárias, facilitando a navegação.
-- **Pontos Negativos:** Poucas casas de banho disponíveis. Apesar de parecer italiana, não encontrei opções na Itália. O sistema de busca é pouco intuitivo e o mapa não atualiza automaticamente, sendo necessário clicar para mostrar os banheiros próximos.
+- **Pontos Negativos:** Poucas casas de banho disponíveis. Apesar de parecer italiana, não encontramos opções na Itália. O sistema de busca é pouco intuitivo e o mapa não atualiza automaticamente, sendo necessário clicar para mostrar os banheiros próximos.
 - **Melhorias Sugeridas:** Automatizar a adição de casas de banho usando APIs e implementar um sistema inteligente para filtrar banheiros próximos ao utilizador.
 
 ### [Berlin Toilet](https://play.google.com/store/apps/details?id=com.futurice.berlintoiletapp&hl=pt_PT)
@@ -116,49 +125,104 @@ Este caso trata da busca por uma casa de banho específica pelo utilizador:
   - Não encontrar, mas ter a opção de sugerir a sua existência.
 - O processo termina após a realização da ação desejada.
 
-## Project Charter
-### Descrição da Solução
+## Plano de Trabalho
+| **Fase**                            | **Descrição**                                                                                                                                                                                                      | **Prazo**               |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| **1. Planejamento e Prototipação**  | Definição dos objetivos, escopo e requisitos do projeto. Criação de protótipos da interface de usuário usando Figma.                                                                                               | Entrega 1: [20/10/2024] |
+| **2. Desenvolvimento do Protótipo** | Implementação inicial da aplicação móvel em Kotlin com Jetpack Compose.<br> Integração básica com Google Maps.<br> Desenvolvimento inicial do servidor com Spring Boot.<br> Conexão com a base de dados MySQL.     | Entrega 2: [24/11/2024] |
+| **3. Desenvolvimento Final**        | Continuação do desenvolvimento da aplicação, incluindo:<br> - Funcionalidades completas de busca, avaliação e sugestão.<br> - Refinamento da integração com Google Maps.<br> - Finalização do servidor e das APIs. | Entrega 3: [12/01/2024] |
+| **4. Testes**                       | Realização de testes unitários e de integração da aplicação.<br>Coleta de feedback de usuários e melhorias com base nas avaliações.                                                                                | Entrega 3: [12/01/2024] |
+| **5. Documentação**                 | Criação da documentação técnica e do relatório final do projeto.                                                                                                                                                   | Entrega 3: [12/01/2024] |
+
+## Descrição da Solução
 O projeto **[Think Toilet](https://github.com/nycocado/think-toilet)** visa desenvolver uma aplicação móvel que facilita a localização e avaliação de casas de banho próximas. A aplicação exibe um mapa interativo destacando as casas de banho mais bem avaliadas e fornece informações como preço, acessibilidade e se o uso é gratuito, público ou restrito a clientes. Os utilizadores podem avaliar aspetos como limpeza, disponibilidade de papel e estrutura, além de deixar comentários sobre as suas experiências. A aplicação também permite que os utilizadores sugiram novas casas de banho e denunciem locais ou comentários inadequados. Para incentivar a participação, existe um sistema de pontuação que gamifica a experiência do utilizador. Integrada ao Google Maps, a aplicação oferece rotas diretas para facilitar o acesso à casa de banho selecionada.
 
-### Enquadramento das Unidades Curriculares
-#### Projeto de Desenvolvimento
-Nesta disciplina, iremos planear e gerir todas as etapas do projeto, utilizando ferramentas de gestão para garantir a execução eficiente e dentro dos prazos. Feedbacks de design e desenvolvimento pessoal serão usados para melhorar a qualidade do projeto e desenvolver habilidades técnicas e interpessoais.
-
-#### Programação Mobile
+## Enquadramento das Unidades Curriculares
+### Programação de Dispositivos Móveis
 Para o desenvolvimento mobile, usaremos **[Kotlin](https://kotlinlang.org)** como linguagem principal, com **[Jetpack Compose](https://developer.android.com/compose)** no **[Android Studio](https://developer.android.com)**. Começaremos pela implementação de componentes de front-end, criando templates reutilizáveis para diferentes partes da aplicação, o que facilita a manutenção e escalabilidade. Além disso, integraremos APIs externas, como o **[Google Maps API](https://developers.google.com/maps)**, e exibiremos dados dinâmicos, como avaliações e rotas para casas de banho.
 
-#### Programação Orientada a Objetos
-Nesta disciplina, usaremos o **[Spring Boot](https://spring.io)** para o back-end, conectando a interface ao banco de dados. O projeto seguirá a arquitetura **REST**, criando APIs que facilitam a comunicação entre o front-end e o back-end. Será utilizado o padrão **MVC** (Model-View-Controller) para separar a lógica de negócios, a interface e os dados. Conceitos como herança e polimorfismo também serão aplicados para otimizar o código em **[Java](https://www.java.com/pt-BR/)**.
+### Programação Orientada por Objetos
+Nesta disciplina, usaremos o **[Java](https://www.java.com/)** com **[Spring Boot](https://spring.io)** para o back-end, conectando a interface ao banco de dados. O projeto seguirá a arquitetura **REST**, criando APIs que facilitam a comunicação entre o front-end e o back-end. Será utilizado o padrão **MVC** (Model-View-Controller) para separar a lógica de negócios, a interface e os dados. Conceitos como herança e polimorfismo também serão aplicados para otimizar o código em **[Java](https://www.java.com/)**.
 
-#### Bases de Dados
+### Bases de Dados
 Para gerenciar e armazenar informações, utilizaremos **[MySQL](https://www.mysql.com/)** para criar uma base de dados relacional. Aplicaremos os conhecimentos da disciplina de Bases de Dados para garantir uma estrutura eficiente. Após a criação do banco, conectaremos a interface desenvolvida em **[Kotlin](https://kotlinlang.org)** ao banco de dados usando o **[Spring Boot](https://spring.io)**.
 
-#### Matemática Discreta
+### Matemática Discreta
 A disciplina de Matemática Discreta fornecerá a lógica necessária para o funcionamento do banco de dados, front-end e back-end. Conceitos como grafos, lógica proposicional e teoria dos conjuntos serão utilizados para resolver problemas de organização e acesso eficiente a dados, garantindo uma lógica de controle e validação robusta e segura.
 
-#### Competências Comunicacionais
+### Projeto de Desenvolvimento Móvel
+Nesta disciplina, iremos planear e gerir todas as etapas do projeto, utilizando ferramentas de gestão para garantir a execução eficiente e dentro dos prazos. Feedbacks de design e desenvolvimento pessoal serão usados para melhorar a qualidade do projeto e desenvolver habilidades técnicas e interpessoais.
+
+### Competências Comunicacionais
 Esta disciplina será essencial para melhorar a comunicação interna da equipa e externa com clientes e utilizadores. Também fornecerá feedback sobre design e desenvolvimento pessoal, ajudando a melhorar a interface e a experiência do utilizador, garantindo que o projeto atenda às expectativas.
 
-### Requisitos Técnicos
-#### Desenvolvimento Móvel
-- Linguagem: **[Kotlin](https://kotlinlang.org)** com **[Jetpack Compose](https://developer.android.com/compose)**.
-- Mínimo: Android 9.
-- SDK: **[Android SDK 28](https://developer.android.com/tools/releases/platforms#9.0)**.
-- Navegação e interação com o usuário.
-- Integração com APIs externas (ex.: **[Google Maps API](https://developers.google.com/maps)**).
+## Requisitos Técnicos
+### Requisitos Funcionais
+- Os usuários devem poder buscar casas de banho próximas por localização no mapa.
+- Os usuários devem poder visualizar detalhes das casas de banho, incluindo preço, acessibilidade, condições e avaliações (incluindo nisso a média das avaliações categoricas, e a média das avaliações gerais).
+- Os usuários devem poder avaliar casas de banho, deixando comentários e notas sobre limpeza, acessibilidade, disponibilidade de papel e estrutura.
+- Os usuários devem poder sugerir novas casas de banho.
+- A aplicação deve permitir que os usuários denunciem locais ou comentários inadequados.
+- Os usúarios obrigatoriamente devem ser registrados e ter uma conta na plataforma para poder interagir com a comunidade
 
-#### Desenvolvimento Back-End
-- Spring Boot como framework principal.
-- Arquitetura REST para comunicação entre front-end e back-end.
-- Manipulação de dados com SQL.
+### Requisitos Não Funcionais
+- A interface deve ser intuitiva e responsiva, proporcionando uma experiência de usuário agradável.
+- O sistema deve permitir a moderação eficiente de comentários e sugestões, incluindo a análise de conteúdo para determinar se ele deve ser mantido, editado ou removido.
+- A aplicação deve ser compatível com Android 9 (API Level 28) ou superior.
+- Deve ser utilizado Kotlin com Jetpack Compose para a interface do usúario.
+- Deve ser utilizado Java com Spring Boot para manipulação de dados.
+- Utilização de MySQL para o armazenamento de dados, incluindo informações sobre usuários, casas de banho, avaliações e sugestões.
+- Todos os dados do usuário devem ser criptografados antes de serem armazenados.
+- Integração com o Google Maps API para fornecer direções e exibir casas de banho no mapa.
 
-#### Bases de Dados
-- Utilização do **[MySQL](https://www.mysql.com/)** para a criação de uma base de dados relacional.
-- Conexão entre o banco de dados e a aplicação via **[Spring Boot](https://spring.io)**.
+## Arquitetura da Solução
+A arquitetura da solução do projeto Think Toilet é projetada para ser modular e escalável, abrangendo três componentes principais: o front-end (aplicação móvel), o back-end (servidor) e o banco de dados.
 
-#### Prototipação
-- Software: **[Figma](https://www.figma.com/)** para design e prototipagem da interface do usuário.
+### Componentes da Arquitetura:
+#### Front-end (Aplicação Móvel)
+Desenvolvida em **[Kotlin](https://kotlinlang.org)** com **[Jetpack Compose](https://developer.android.com/compose)** para a interface de usuário, a aplicação permitirá aos usuários buscar casas de banho, visualizar detalhes, fazer avaliações e sugerir novos locais. A integração com o **[Google Maps API](https://developers.google.com/maps)** fornecerá um mapa interativo com direções.
 
-#### Comunicação e Feedback
-- Estabelecimento de canais de comunicação eficazes.
-- Coleta de feedback sobre design e interação com o usuário.
+#### Back-end (Servidor)
+Construído com **[Java](https://www.java.com/)** e **[Spring Boot](https://spring.io)**, o servidor implementará uma arquitetura RESTful para facilitar a comunicação entre o front-end e o back-end. Ele gerenciará dados sobre casas de banho, avaliações e usuários, garantindo a integridade das informações.
+
+#### Banco de Dados
+Utilizando **[MySQL](https://www.mysql.com/)**, o banco de dados será projetado para armazenar informações sobre usuários, casas de banho, avaliações e sugestões. A estrutura relacional garantirá eficiência nas consultas e integridade dos dados.
+
+### Fluxo de Dados:
+#### Busca de Casas de Banho
+- O usuário pesquisa casas de banho na aplicação.
+- A aplicação envia uma requisição ao servidor para obter dados das casas de banho.
+- O servidor processa a requisição e retorna os dados ao front-end.
+
+#### Avaliação de Casas de Banho
+- O usuário seleciona uma casa de banho e fornece uma avaliação.
+- A aplicação envia a avaliação ao servidor.
+- O servidor armazena a avaliação no banco de dados e pode retornar uma confirmação ao usuário.
+
+#### Sugestão de Novas Casas de Banho
+- O usuário sugere uma nova casa de banho.
+- A aplicação envia os detalhes da sugestão ao servidor.
+- O servidor armazena a sugestão e notifica o usuário sobre a aceitação ou rejeição da proposta.
+
+#### Visualização de Avaliações e Sugestões
+- O usuário pode visualizar avaliações de outras casas de banho.
+- O servidor responde às requisições de visualização com as avaliações armazenadas.
+
+## Tecnologias
+### Desenvolvimento Móvel:
+- **Linguagem:** [Kotlin](https://kotlinlang.org)
+- **Framework:** [Jetpack Compose](https://developer.android.com/compose)
+- **SDK:** [Android SDK 28](https://developer.android.com/tools/releases/platforms#9.0)
+- **Integração:** [Google Maps API](https://developers.google.com/maps)
+
+### Desenvolvimento Back-End:
+- **Linguagem:** [Java](https://www.java.com/)
+- **Framework:** [Spring Boot](https://spring.io)
+
+### Bases de Dados:
+- **Sistema de Gerenciamento:** [MySQL](https://www.mysql.com/)
+- **Conexão:** via [Spring Boot](https://spring.io)
+
+### Prototipação:
+- **Software:** [Figma](https://www.figma.com/) para design e prototipação da interface do usuário.
+
