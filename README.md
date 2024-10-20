@@ -104,14 +104,14 @@ Aplicativo para localizar banheiros públicos, com informações úteis como ava
 
 ## Guiões de Teste
 ### Primeiro Caso (Core) - Localizar a melhor casa de banho próxima
-Consideramos a localização da melhor casa de banho próxima como o objetivo principal do projeto, seguindo estes passos:
-- O utilizador acede à aplicação e visualiza o mapa.
+Consideramos a localização da melhor casa de banho próxima como o objetivo principal do projeto, seguindo estes passos: ([Imagens](#telas-que-aparecem-no-guião-de-testes))
+- O utilizador acede à aplicação e visualiza o mapa. 
 - No mapa, aparecem as casas de banho mais próximas, priorizadas por avaliação. Na parte inferior, é exibida a primeira casa de banho, e o utilizador pode deslizar para ver as cinco mais próximas.
 - Independentemente do método escolhido para aceder à casa de banho, o utilizador será redirecionado para a janela da casa escolhida.
 - Nessa janela, o utilizador pode clicar no botão escrito "Abrir no Maps", que o levará ao Google Maps, onde poderá escolher a rota até à casa de banho.
 
 ### Segundo Caso - Feedback da casa de banho
-O segundo caso envolve a avaliação de uma casa de banho:
+O segundo caso envolve a avaliação de uma casa de banho: ([Imagens](#telas-que-aparecem-no-guião-de-testes))
 - O utilizador acede à aplicação e visualiza o mapa.
 - No mapa, aparecem as casas de banho mais próximas, priorizadas por avaliação. Na parte inferior, é exibida a primeira casa de banho, e o utilizador pode deslizar para ver as cinco mais próximas.
 - Após escolher uma casa de banho, o utilizador é redirecionado para a janela da casa selecionada.
@@ -121,7 +121,7 @@ O segundo caso envolve a avaliação de uma casa de banho:
 - Para concluir, o utilizador clica no botão de confirmação para publicar a sua avaliação.
 
 ### Terceiro Caso - Pesquisar casa de banho específica
-Este caso trata da busca por uma casa de banho específica pelo utilizador:
+Este caso trata da busca por uma casa de banho específica pelo utilizador: ([Imagens](#telas-que-aparecem-no-guião-de-testes))
 - O utilizador acede à aplicação e visualiza o mapa.
 - Na parte superior, clica no botão de pesquisa.
 - O teclado é acionado, e o utilizador pode digitar a localização ou o nome do estabelecimento onde a casa de banho se encontra.
@@ -238,8 +238,34 @@ Utilizando **MySQL**, o banco de dados será projetado para armazenar informaç�
 - **Software:** Figma para design e prototipação da interface do usuário.
 
 ## Planificação 
+![Gráfico de Gantt](Documentos/images/gantt.jpeg)
 
 ## Interface
+### Telas que aparecem no Guião de Testes:
+![Tela Principal 01](Documentos/images/interface/home_page/home_page01.png)
+![Tela Principal 02](Documentos/images/interface/home_page/home_page02.png)
+![IADE - Página da Casa de Banho](Documentos/images/interface/toilet_page/iade_toilet_page.png)
+![Avaliação](Documentos/images/interface/rating_page.png)
+
+### Telas que não aparecem no Guião de Testes:
+- [Histórico](Documentos/images/interface/historic_page.png)
+- [Usuário](Documentos/images/interface/user_page/user_page.png)
+- [Configurações do Usuário](Documentos/images/interface/user_page/user_config_page.png)
+- [Pontos do Usuário 01](Documentos/images/interface/user_page/user_points01.png)
+- [Pontos do Usuário 02](Documentos/images/interface/user_page/user_points02.png)
+- [Login](Documentos/images/interface/login_page.png)
+- [Registo 01](Documentos/images/interface/register_page/register_page01.png)
+- [Registo 02](Documentos/images/interface/register_page/register_page02.png)
+- [Denúnciar Casa de Banho](Documentos/images/interface/report_page/report_toilet_page.png)
+- [Denúnciar Avaliação](Documentos/images/interface/report_page/report_comment_page.png)
+- [Denuncia - Finalizaçãod](Documentos/images/interface/report_page/report_comment_thanks.png)
+- [Sugerir Casa de Banho 01](Documentos/images/interface/sugerir_page/sugerir_page01.png)
+- [Sugerir Casa de Banho 02](Documentos/images/interface/sugerir_page/sugerir_page02.png)
+- [Sugerir Casa de Banho 03](Documentos/images/interface/sugerir_page/sugerir_page03.png)
+- [Sugerir Casa de Banho 04](Documentos/images/interface/sugerir_page/sugerir_page04.png)
+- [Sugerir Casa de Banho 05](Documentos/images/interface/sugerir_page/sugerir_page05.png)
+- [Sugerir Casa de Banho 06](Documentos/images/interface/sugerir_page/sugerir_page06.png)
+- [Avaliação](Documentos/images/interface/comment_page.png)
 
 ## Conclusão
 O **Think Toilet** tem como principal objetivo fornecer uma solução eficaz para facilitar a localização de casas de banho públicas e privadas, ao mesmo tempo que melhora a experiência do utilizador através de um sistema de avaliações detalhadas. A aplicação permite que os utilizadores encontrem rapidamente casas de banho próximas, com base em critérios como limpeza, acessibilidade e preço. Além disso, o projeto visa promover a colaboração dos utilizadores através de sugestões de novos locais e avaliações, criando assim um banco de dados sempre atualizado e confiável.
