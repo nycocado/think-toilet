@@ -238,14 +238,14 @@ Utilizando **MySQL**, o banco de dados será projetado para armazenar informaç�
 - **Software:** Figma para design e prototipação da interface do usuário.
 
 ## Planificação 
-![Gráfico de Gantt](Documentos/images/gantt.jpeg)
+![Gráfico de Gantt](Documentos/images/gantt.png)
 
 ## Interface
 ### Telas que aparecem no Guião de Testes:
-![Tela Principal 01](Documentos/images/interface/home_page/home_page01.png)
-![Tela Principal 02](Documentos/images/interface/home_page/home_page02.png)
-![IADE - Página da Casa de Banho](Documentos/images/interface/toilet_page/iade_toilet_page.png)
-![Avaliação](Documentos/images/interface/rating_page.png)
+<img src="Documentos/images/interface/home_page/home_page01.png" alt="Tela Principal 01" width="250"/>
+<img src="Documentos/images/interface/home_page/home_page02.png" alt="Tela Principal 02" width="250"/>
+<img src="Documentos/images/interface/toilet_page/mare_alta_toilet_page.png" alt="Maré Alta - Página da Casa de Banho" width="250"/>
+<img src="Documentos/images/interface/rating_page.png" alt="Avaliação" width="250"/>
 
 ### Telas que não aparecem no Guião de Testes:
 - [Histórico](Documentos/images/interface/historic_page.png)
@@ -258,13 +258,12 @@ Utilizando **MySQL**, o banco de dados será projetado para armazenar informaç�
 - [Registo 02](Documentos/images/interface/register_page/register_page02.png)
 - [Denúnciar Casa de Banho](Documentos/images/interface/report_page/report_toilet_page.png)
 - [Denúnciar Avaliação](Documentos/images/interface/report_page/report_comment_page.png)
-- [Denuncia - Finalizaçãod](Documentos/images/interface/report_page/report_comment_thanks.png)
+- [Denuncia - Finalizaçãod](Documentos/images/interface/report_page/report_thanks_page.png)
 - [Sugerir Casa de Banho 01](Documentos/images/interface/sugerir_page/sugerir_page01.png)
 - [Sugerir Casa de Banho 02](Documentos/images/interface/sugerir_page/sugerir_page02.png)
 - [Sugerir Casa de Banho 03](Documentos/images/interface/sugerir_page/sugerir_page03.png)
 - [Sugerir Casa de Banho 04](Documentos/images/interface/sugerir_page/sugerir_page04.png)
 - [Sugerir Casa de Banho 05](Documentos/images/interface/sugerir_page/sugerir_page05.png)
-- [Sugerir Casa de Banho 06](Documentos/images/interface/sugerir_page/sugerir_page06.png)
 - [Avaliação](Documentos/images/interface/comment_page.png)
 
 ## Conclusão
