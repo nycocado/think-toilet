@@ -150,7 +150,7 @@ Para o desenvolvimento mobile, usaremos **Kotlin** como linguagem principal, com
 Nesta disciplina, usaremos o **Java** com **Spring Boot** para o back-end, conectando a interface ao banco de dados. O projeto seguirá a arquitetura **REST**, criando APIs que facilitam a comunicação entre o front-end e o back-end. Será utilizado o padrão **MVC** (Model-View-Controller) para separar a lógica de negócios, a interface e os dados. Conceitos como herança e polimorfismo também serão aplicados para otimizar o código em **Java**.
 
 ### Bases de Dados
-Para gerenciar e armazenar informações, utilizaremos **MySQL** para criar uma base de dados relacional. Aplicaremos os conhecimentos da disciplina de Bases de Dados para garantir uma estrutura eficiente. Após a criação do banco, conectaremos a interface desenvolvida em **Kotlin** ao banco de dados usando o **Spring Boot**.
+PUsaremos o **MySQL** para gerenciar o armazenamento das informações do projeto, aplicando os conceitos da disciplina de Bases de Dados. Isso garante uma estrutura eficiente e organizada, otimizando o acesso a dados como avaliações, sugestões e denúncias, com foco em segurança e desempenho.
 
 ### Matemática Discreta
 A disciplina de Matemática Discreta fornecerá a lógica necessária para o funcionamento do banco de dados, front-end e back-end. Conceitos como grafos, lógica proposicional e teoria dos conjuntos serão utilizados para resolver problemas de organização e acesso eficiente a dados, garantindo uma lógica de controle e validação robusta e segura.
