@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Think Toilet"
+rootProject.name = "ThinkToilet"
 include(":app")
