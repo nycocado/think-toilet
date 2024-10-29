@@ -6,7 +6,15 @@ data class Toilet(
     var id: Int?,
     val name: String,
     val address: String,
-    var ratingAverage: Float?,
-    var numCommets: Int?,
+    var ratingCategory: RatingCategory,
+    val accessibility: Boolean,
+    val babyChangingStation: Boolean,
     val position: Position,
-) : Serializable
+    var numComments: Int,
+    val comments: List<Comment>,
+    val googlePlaceId: String,
+) : Serializable {
+    fun getAverageRating(): Float {
+        return ratingCategory.average()
+    }
+}
