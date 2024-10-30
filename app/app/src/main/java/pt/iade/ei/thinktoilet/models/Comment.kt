@@ -9,4 +9,6 @@ data class Comment(
     val text: String,
     val ratingCategory: RatingCategory,
     val date: LocalDateTime,
+    val like: Int,
+    val dislike: Int
 ) : Serializable
