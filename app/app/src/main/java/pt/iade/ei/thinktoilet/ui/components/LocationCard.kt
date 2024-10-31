@@ -25,7 +25,7 @@ import pt.iade.ei.thinktoilet.ui.theme.montserratFontFamily
 @Composable
 fun LocationCard(
     toilet: Toilet,
-    distance: String
+    distance: String,
 ) {
     Card(
         modifier = Modifier
