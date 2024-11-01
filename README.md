@@ -238,7 +238,8 @@ Utilizando **[MySQL](https://www.mysql.com/)**, o banco de dados será projetado
 - **Software:** [Figma](https://www.figma.com/) para design e prototipação da interface do usuário.
 
 ## Planificação 
-![Gráfico de Gantt](documents/gantt/gantt.png)
+[Gráfico de Gantt](documents/gantt/gantt.pdf)  
+[ClickUp](https://app.clickup.com/9012385337/v/s/90121717706)
 
 ## Interface
 ### Telas que aparecem no Guião de Testes:
