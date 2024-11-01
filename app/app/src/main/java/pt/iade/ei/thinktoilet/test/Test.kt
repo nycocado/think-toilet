@@ -41,7 +41,7 @@ fun generateToilet(): Toilet {
 fun generateUser(): UserForeigner {
     return UserForeigner(
         id = 1,
-        name = "João",
+        name = "Nycolas",
         iconId = 1,
         numComments = 1,
         points = 1
@@ -50,13 +50,23 @@ fun generateUser(): UserForeigner {
 
 fun generateComment(): Comment {
     return Comment(
-        id = 1,
+        id = 13,
         userForeigner = generateUser(),
+        rate = 2.8f,
+        commentsTime = 20,
         text = "Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment",
         ratingCategory = generateRatingCategory(),
         date = LocalDateTime.now(),
-        like = 1,
-        dislike = 1
+        like = 527,
+        dislike = 97
 
     )
+    // Padrao para Text
+    /**
+     * Text(
+     *       text = "texto",                        texto
+     *       fontFamily = montserratFontFamily,     estilo da fonte
+     *       fontWeight = FontWeight.Normal,        tamanho da fonte
+     *       )
+     * **/
 }
