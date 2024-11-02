@@ -114,8 +114,6 @@ create table comment (
 					cmm_rpaper INT NOT NULL,
 					cmm_rstructure INT NOT NULL,
 					cmm_raccessibility INT NOT NULL,
-					cmm_like INT,
-					cmm_dislike INT,
 					cmm_cdatetime DATETIME NOT NULL,
 					primary key (cmm_id)
 );
