@@ -38,10 +38,28 @@ fun generateRandomToilet(): Toilet{
     )
 }
 
+fun generateRandomToiletWithComments(numComments: Int): Toilet {
+    val toilet = generateRandomToilet()
+    val comments = mutableListOf<Comment>()
+    for (i in 1..numComments) {
+        comments.add(generateComment())
+    }
+    toilet.comments = comments
+    return toilet
+}
+
 fun generateRandomToilets(numToilets: Int): List<Toilet> {
     val toilets = mutableListOf<Toilet>()
     for (i in 1..numToilets) {
         toilets.add(generateRandomToilet())
+    }
+    return toilets
+}
+
+fun generateRandomToiletsWithComments(numToilets: Int, numComments: Int): List<Toilet> {
+    val toilets = mutableListOf<Toilet>()
+    for (i in 1..numToilets) {
+        toilets.add(generateRandomToiletWithComments(numComments))
     }
     return toilets
 }
@@ -53,7 +71,7 @@ fun generateRandomDistance(): Double {
 fun generateUser(): UserForeigner {
     return UserForeigner(
         id = 1,
-        name = "Nycolas",
+        name = "Luan Ribeiro",
         iconId = 1,
         numComments = 1,
         points = 1
@@ -65,7 +83,7 @@ fun generateComment(): Comment {
         id = 13,
         userForeigner = generateUser(),
         rate = 2.8f,
-        text = "Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment",
+        text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac varius ex. Morbi vitae fermentum dui. Sed in laoreet massa. Donec sed pretium ipsum. Phasellus diam nunc, hendrerit laoreet imperdiet sit amet, ornare ut diam. Sed augue nisl, sollicitudin id dui sit amet, auctor faucibus odio. Nulla hendrerit gravida lacus ut aliquet.",
         ratingCategory = generateRandomRatingCategory(),
         datetime = LocalDateTime.now(),
         like = 527,
