@@ -67,8 +67,8 @@ fun generateComment(): Comment {
         rate = 2.8f,
         commentsTime = 20,
         text = "Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment",
-        ratingCategory = generateRatingCategory(),
-        date = LocalDateTime.now(),
+        ratingCategory = generateRandomRatingCategory(),
+        datetime = LocalDateTime.now(),
         like = 527,
         dislike = 97
     )
