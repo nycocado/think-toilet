@@ -120,7 +120,30 @@ fun ToiletPage(toilet: Toilet) {
                 fontSize = 16.sp
             )
         }
-        for(comment in toilet.comments) {
+        Row(
+            modifier = Modifier.padding(
+                bottom = 8.dp
+            ),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                modifier = Modifier.padding(
+                    end = 6.dp,
+                ),
+                text = "Avaliações",
+                fontFamily = montserratFontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp
+            )
+            Text(
+                text = toilet.comments.size.toString(),
+                fontFamily = montserratFontFamily,
+                fontWeight = FontWeight.Medium,
+                fontSize = 14.sp,
+                color = Color.Gray
+            )
+        }
+        for (comment in toilet.comments) {
             Comment(comment = comment)
         }
     }

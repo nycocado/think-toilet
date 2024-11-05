@@ -38,31 +38,20 @@ fun Comment(
         thickness = 2.dp,
         color = Color.LightGray
     )
-    Column {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Column(
-                modifier = Modifier.weight(1f),
-            ) {
-                UserComment(comment = comment)
-            }
-            Column {
-
-            }
-        }
+    Column (
+        modifier = Modifier.padding(vertical = 12.dp)
+    ){
+        UserComment(comment = comment)
         Row(
             modifier = Modifier.padding(
                 top = 5.dp,
+                bottom = 1.dp
             ),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Row(
                 modifier = Modifier
                     .padding(end = 10.dp)
-                    .weight(1f),
             ) {
                 Stars(
                     rating = comment.rate,
@@ -76,7 +65,6 @@ fun Comment(
                 fontSize = 12.sp
             )
         }
-
         Row(
             modifier = Modifier.padding(vertical = 5.dp)
         ) {
@@ -161,17 +149,17 @@ fun UserComment(comment: Comment) {
                     fontWeight = FontWeight.Bold,
                     fontSize = 14.sp,
                     maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
+                    lineHeight = 20.sp
                 )
             }
-            Row(
-                modifier = Modifier.padding(top = 5.dp)
-            ) {
+            Row {
                 Text(
                     text = "${comment.userForeigner.numComments} Avaliações",
                     fontFamily = montserratFontFamily,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 12.sp
+                    fontSize = 12.sp,
+                    lineHeight = 20.sp
                 )
             }
         }
