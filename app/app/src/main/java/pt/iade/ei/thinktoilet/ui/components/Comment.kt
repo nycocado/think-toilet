@@ -25,7 +25,6 @@ import pt.iade.ei.thinktoilet.R
 import pt.iade.ei.thinktoilet.models.Comment
 import pt.iade.ei.thinktoilet.test.generateComment
 import pt.iade.ei.thinktoilet.ui.theme.montserratFontFamily
-import kotlin.math.roundToInt
 
 
 @Composable
@@ -70,32 +69,18 @@ fun Comment(
                             modifier = Modifier.padding(top = 5.dp)
                         ) {
                             Text(
-                                comment.commentsTime.toString() + " Avaliações",
+                                comment.userForeigner.numComments.toString() + " Avaliações",
                                 fontFamily = montserratFontFamily,
                                 fontWeight = FontWeight.SemiBold,
+                                
                             )
                         }
                     }
                 }
-                Row {
-                    for (i in 1..comment.rate.roundToInt()) {
-                        Image(
-                            modifier = Modifier.width(20.dp),
-                            painter = painterResource(id = R.drawable.star_filled),
-                            contentDescription = "Like Icon"
-                        )
-                    }
-                    for (i in (comment.rate.roundToInt())..4) {
-                        Image(
-                            modifier = Modifier.width(20.dp),
-                            painter = painterResource(id = R.drawable.star),
-                            contentDescription = "Like Icon"
-                        )
-                    }
-
-                }
-
-
+                Stars(
+                    rating = comment.rate,
+                    size = 20.dp
+                )
             }
 
             Column(
