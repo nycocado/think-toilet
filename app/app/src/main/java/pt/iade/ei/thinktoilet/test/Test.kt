@@ -65,7 +65,6 @@ fun generateComment(): Comment {
         id = 13,
         userForeigner = generateUser(),
         rate = 2.8f,
-        commentsTime = 20,
         text = "Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment",
         ratingCategory = generateRandomRatingCategory(),
         datetime = LocalDateTime.now(),

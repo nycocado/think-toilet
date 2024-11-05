@@ -8,7 +8,6 @@ data class Comment(
     val userForeigner: UserForeigner,
     val rate: Float,
     val text: String,
-    val commentsTime: Int,
     val ratingCategory: RatingCategory,
     val datetime: LocalDateTime,
     val like: Int,
