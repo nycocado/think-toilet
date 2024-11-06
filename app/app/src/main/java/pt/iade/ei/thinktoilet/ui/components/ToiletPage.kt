@@ -24,7 +24,6 @@ import pt.iade.ei.thinktoilet.R
 import pt.iade.ei.thinktoilet.models.Toilet
 import pt.iade.ei.thinktoilet.test.generateRandomToilet
 import pt.iade.ei.thinktoilet.test.generateRandomToiletWithComments
-import pt.iade.ei.thinktoilet.ui.theme.montserratFontFamily
 
 @Composable
 fun ToiletPage(toilet: Toilet) {
@@ -33,7 +32,6 @@ fun ToiletPage(toilet: Toilet) {
     ) {
         Text(
             text = toilet.name,
-            fontFamily = montserratFontFamily,
             fontWeight = FontWeight.SemiBold,
             fontSize = 28.sp
         )
@@ -50,7 +48,6 @@ fun ToiletPage(toilet: Toilet) {
             Text(
                 modifier = Modifier.padding(horizontal = 4.dp),
                 text = "%.1f".format(toilet.getAverageRating()),
-                fontFamily = montserratFontFamily,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 16.sp
             )
@@ -73,7 +70,6 @@ fun ToiletPage(toilet: Toilet) {
             ) {
                 Text(
                     text = toilet.address,
-                    fontFamily = montserratFontFamily,
                     fontWeight = FontWeight.Medium,
                     fontSize = 16.sp
                 )
@@ -90,7 +86,6 @@ fun ToiletPage(toilet: Toilet) {
                 ) {
                     Text(
                         text = "Ir para o Maps",
-                        fontFamily = montserratFontFamily,
                         fontWeight = FontWeight.Medium,
                         fontSize = 16.sp
                     )
@@ -115,7 +110,6 @@ fun ToiletPage(toilet: Toilet) {
         ) {
             Text(
                 text = "Avaliar",
-                fontFamily = montserratFontFamily,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
@@ -131,13 +125,11 @@ fun ToiletPage(toilet: Toilet) {
                     end = 6.dp,
                 ),
                 text = "Avaliações",
-                fontFamily = montserratFontFamily,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp
             )
             Text(
                 text = toilet.comments.size.toString(),
-                fontFamily = montserratFontFamily,
                 fontWeight = FontWeight.Medium,
                 fontSize = 14.sp,
                 color = Color.Gray
