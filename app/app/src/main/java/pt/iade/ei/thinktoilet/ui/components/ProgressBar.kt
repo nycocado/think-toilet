@@ -19,7 +19,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import pt.iade.ei.thinktoilet.ui.theme.montserratFontFamily
 
 @Composable
 fun ProgressBar(
@@ -50,7 +49,6 @@ fun ProgressBar(
                 .padding(start = 8.dp)
                 .width(106.dp),
             text = text,
-            fontFamily = montserratFontFamily,
             fontWeight = FontWeight.Medium,
             fontSize = 12.sp,
             lineHeight = 16.sp,

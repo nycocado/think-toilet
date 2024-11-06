@@ -25,7 +25,6 @@ import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.models.Toilet
 import pt.iade.ei.thinktoilet.models.distanceToString
 import pt.iade.ei.thinktoilet.test.generateRandomToilet
-import pt.iade.ei.thinktoilet.ui.theme.montserratFontFamily
 
 @Composable
 fun LocationCard(
@@ -70,7 +69,6 @@ fun LocationCard(
                     Text(
                         modifier = Modifier.fillMaxWidth(),
                         text = toilet.name,
-                        fontFamily = montserratFontFamily,
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 18.sp,
                         maxLines = 1,
@@ -84,7 +82,6 @@ fun LocationCard(
                     Text(
                         modifier = Modifier.padding(horizontal = 2.dp),
                         text = "(${toilet.numComments})",
-                        fontFamily = montserratFontFamily,
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 10.sp,
                         lineHeight = 1.sp
@@ -94,7 +91,6 @@ fun LocationCard(
                     Text(
                         modifier = Modifier.fillMaxWidth(),
                         text = toilet.address,
-                        fontFamily = montserratFontFamily,
                         fontWeight = FontWeight.SemiBold,
                         fontSize = 12.sp,
                         maxLines = 1,
@@ -106,7 +102,6 @@ fun LocationCard(
                 Text(
                     modifier = Modifier.padding(horizontal = 10.dp),
                     text = distanceToString(distance),
-                    fontFamily = montserratFontFamily,
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 18.sp,
                     maxLines = 1
