@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberBottomSheetScaffoldState
@@ -59,6 +60,7 @@ fun BottomSheetScaffoldThinkToilet() {
         scaffoldState = scaffoldState,
         sheetPeekHeight = 160.dp,
         sheetShadowElevation = 8.dp,
+        sheetContainerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
         sheetContent = {
             Box(
                 modifier = Modifier

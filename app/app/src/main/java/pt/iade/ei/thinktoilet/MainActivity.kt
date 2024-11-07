@@ -21,7 +21,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AppTheme {
+            AppTheme(
+                dynamicColor = false
+            ) {
                 MainView()
             }
         }
@@ -30,23 +32,21 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainView() {
-    AppTheme {
-        Scaffold(
-            bottomBar = {
-                BottomAppBar {
-                    Text(
-                        text = "BottomAppBar",
-                        modifier = Modifier.padding(16.dp)
-                    )
-                }
+    Scaffold(
+        bottomBar = {
+            BottomAppBar {
+                Text(
+                    text = "BottomAppBar",
+                    modifier = Modifier.padding(16.dp)
+                )
             }
-        ) { innerPadding ->
-            Box(
-                Modifier
-                    .padding(innerPadding)
-            ) {
-                BottomSheetScaffoldThinkToilet()
-            }
+        }
+    ) { innerPadding ->
+        Box(
+            Modifier
+                .padding(innerPadding)
+        ) {
+            BottomSheetScaffoldThinkToilet()
         }
     }
 }

@@ -52,7 +52,12 @@ fun LocationCard(
                 shape = MaterialTheme.shapes.medium
             ),
         shape = MaterialTheme.shapes.medium,
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            contentColor = MaterialTheme.colorScheme.onSurface,
+            disabledContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
+            disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+        ),
         elevation = CardDefaults.cardElevation(2.dp)
     ) { // Container (Serve para aplicar o border radius)
         Row(
