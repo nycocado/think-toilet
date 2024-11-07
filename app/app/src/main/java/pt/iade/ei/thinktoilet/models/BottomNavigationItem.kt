@@ -7,5 +7,6 @@ data class BottomNavigationItem(
     val selectedIcon: ImageVector,
     val unselectedIcon: ImageVector,
     val hasNews: Boolean,           // Notificaçoes bolinha vermelha
-    val badgeCount: Int? = null     // Notificaçaoes mas em numeros
+    val badgeCount: Int? = null,     // Notificaçaoes mas em numeros
+    val router: String,
 )

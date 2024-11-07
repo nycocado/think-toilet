@@ -18,16 +18,21 @@ fun CreateNavItems(): List <BottomNavigationItem> {
             selectedIcon = Icons.Filled.LocationOn,
             unselectedIcon = Icons.Outlined.LocationOn,
             hasNews = false,
+            router = "main",
         ), BottomNavigationItem(
             title = "Histórico",
             selectedIcon = Icons.Filled.Info,
             unselectedIcon = Icons.Outlined.Info,
             hasNews = false,
+            router = "history",
+
         ), BottomNavigationItem(
             title = "Perfil",
             selectedIcon = Icons.Filled.Person,
             unselectedIcon = Icons.Outlined.Person,
             hasNews = true,
+            router = "perfil",
+
         )
     )
 
