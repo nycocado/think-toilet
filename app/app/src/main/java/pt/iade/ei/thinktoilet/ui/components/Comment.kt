@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import pt.iade.ei.thinktoilet.R
 import pt.iade.ei.thinktoilet.models.Comment
 import pt.iade.ei.thinktoilet.test.generateComment
+import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable
 fun Comment(
@@ -33,9 +35,9 @@ fun Comment(
         thickness = 2.dp,
         color = Color.LightGray
     )
-    Column (
+    Column(
         modifier = Modifier.padding(vertical = 12.dp)
-    ){
+    ) {
         UserComment(comment = comment)
         Row(
             modifier = Modifier.padding(
@@ -55,6 +57,7 @@ fun Comment(
             }
             Text(
                 text = "há uma semana",
+                style = MaterialTheme.typography.bodySmall,
                 fontWeight = FontWeight.SemiBold,
                 fontSize = 12.sp
             )
@@ -64,9 +67,8 @@ fun Comment(
         ) {
             Text(
                 text = comment.text,
+                style = MaterialTheme.typography.bodyMedium,
                 fontWeight = FontWeight.Normal,
-                fontSize = 14.sp,
-                style = TextStyle.Default
             )
         }
         Row(
@@ -87,8 +89,8 @@ fun Comment(
                     )
                     Text(
                         text = comment.like.toString(),
+                        style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.SemiBold,
-                        fontSize = 14.sp
                     )
                 }
             }
@@ -104,8 +106,8 @@ fun Comment(
                     )
                     Text(
                         text = comment.dislike.toString(),
+                        style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.SemiBold,
-                        fontSize = 14.sp
                     )
                 }
             }
@@ -136,19 +138,17 @@ fun UserComment(comment: Comment) {
             Row {
                 Text(
                     comment.userForeigner.name,
+                    style = MaterialTheme.typography.labelLarge,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 14.sp,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
-                    lineHeight = 20.sp
                 )
             }
             Row {
                 Text(
                     text = "${comment.userForeigner.numComments} Avaliações",
+                    style = MaterialTheme.typography.labelMedium,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 12.sp,
-                    lineHeight = 20.sp
                 )
             }
         }
@@ -159,9 +159,11 @@ fun UserComment(comment: Comment) {
 @Preview(showBackground = true)
 @Composable
 fun CommentPreview() {
-    Comment(
-        comment = generateComment()
-    )
+    AppTheme {
+        Comment(
+            comment = generateComment()
+        )
+    }
 }
 
 

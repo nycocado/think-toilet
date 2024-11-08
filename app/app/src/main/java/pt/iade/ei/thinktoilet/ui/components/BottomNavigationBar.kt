@@ -10,17 +10,24 @@ import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.modifier.modifierLocalMapOf
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import pt.iade.ei.thinktoilet.models.BottomNavigationItem
+import kotlin.math.max
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -30,9 +37,20 @@ fun BottomNavigationBar(navController: NavController) {
         mutableIntStateOf(0)
     }
 
-    NavigationBar {
+    NavigationBar(
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+    ) {
         bottomNavigationItems.forEachIndexed { index, item ->
             NavigationBarItem(
+                colors = NavigationBarItemColors(
+                    selectedIconColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                    selectedTextColor = MaterialTheme.colorScheme.onSurface,
+                    selectedIndicatorColor = MaterialTheme.colorScheme.tertiaryContainer,
+                    unselectedIconColor = MaterialTheme.colorScheme.onSurface,
+                    unselectedTextColor = MaterialTheme.colorScheme.onSurface,
+                    disabledIconColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                    disabledTextColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
+                ),
                 selected = currentRoute == item.router,
                 onClick = {
                     selectedItemIndex = index
@@ -42,7 +60,15 @@ fun BottomNavigationBar(navController: NavController) {
                         restoreState = true
                     }
                 },
-                label = { Text(text = item.title) },
+                label = {
+                    Text(
+                        text = item.title,
+                        style = MaterialTheme.typography.titleSmall,
+                        fontWeight = if(index == selectedItemIndex) FontWeight.Bold else FontWeight.Normal,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                },
                 icon = {
                     BadgedBox(
                         badge = {
