@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import pt.iade.ei.thinktoilet.R
 import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.test.generateRandomToilet
 import pt.iade.ei.thinktoilet.test.generateRandomToiletWithComments
 
 @Composable
