@@ -32,19 +32,21 @@ fun generateRandomToilet(): Toilet{
         accessibility = (0..1).random() == 1,
         babyChangingStation = (0..1).random() == 1,
         position = generateRandomPosition(),
-        numComments = (0..100).random(),
+        numComments = 0,
         comments = emptyList(),
-        googlePlaceId = "0"
+        googlePlaceId = "0",
+        distance = generateRandomDistance()
     )
 }
 
-fun generateRandomToiletWithComments(numComments: Int): Toilet {
+fun generateRandomToiletWithComments(): Toilet {
     val toilet = generateRandomToilet()
     val comments = mutableListOf<Comment>()
-    for (i in 1..numComments) {
+    for (i in 1..(1..15).random()) {
         comments.add(generateComment())
     }
     toilet.comments = comments
+    toilet.numComments = comments.size
     return toilet
 }
 
@@ -56,10 +58,10 @@ fun generateRandomToilets(numToilets: Int): List<Toilet> {
     return toilets
 }
 
-fun generateRandomToiletsWithComments(numToilets: Int, numComments: Int): List<Toilet> {
+fun generateRandomToiletsWithComments(numToilets: Int): List<Toilet> {
     val toilets = mutableListOf<Toilet>()
     for (i in 1..numToilets) {
-        toilets.add(generateRandomToiletWithComments(numComments))
+        toilets.add(generateRandomToiletWithComments())
     }
     return toilets
 }

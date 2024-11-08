@@ -1,6 +1,6 @@
 package pt.iade.ei.thinktoilet
 
-import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,24 +18,25 @@ import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.test.generateRandomDistance
-import pt.iade.ei.thinktoilet.test.generateRandomToiletsWithComments
+import pt.iade.ei.thinktoilet.models.ToiletViewModel
 import pt.iade.ei.thinktoilet.ui.components.LocationCard
 import pt.iade.ei.thinktoilet.ui.components.ToiletPage
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(){
+fun HomeScreen() {
     val scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberStandardBottomSheetState(
             initialValue = SheetValue.PartiallyExpanded,
@@ -44,18 +45,27 @@ fun HomeScreen(){
             }
         )
     )
-    var locationSelected by remember { mutableStateOf(false) }
-    var toiletSelected by remember { mutableStateOf<Toilet?>(null) }
-    val toilets: List<Toilet> = remember {
-        generateRandomToiletsWithComments(
-            numToilets = 5,
-            numComments = 5
-        )
+    val scope = rememberCoroutineScope()
+    val navController = rememberNavController()
+    val viewModel: ToiletViewModel = viewModel()
+    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+
+    LaunchedEffect(currentRoute) {
+        if (currentRoute == "toilet_detail/{toiletId}") {
+            scaffoldState.bottomSheetState.expand()
+        } else {
+            scaffoldState.bottomSheetState.partialExpand()
+        }
     }
 
-    BackHandler(enabled = locationSelected) {
-        locationSelected = false
-        toiletSelected = null
+    val toggleSheetState: () -> Unit = {
+        scope.launch {
+            if (scaffoldState.bottomSheetState.currentValue == SheetValue.Expanded) {
+                scaffoldState.bottomSheetState.partialExpand()
+            } else {
+                scaffoldState.bottomSheetState.expand()
+            }
+        }
     }
 
     BottomSheetScaffold(
@@ -64,25 +74,37 @@ fun HomeScreen(){
         sheetShadowElevation = 8.dp,
         sheetContainerColor = MaterialTheme.colorScheme.surfaceContainerLow,
         sheetDragHandle = {
-            CustomDragHandle()
+            CustomDragHandle {
+                toggleSheetState()
+            }
         },
         sheetContent = {
             Box(
                 modifier = Modifier
                     .fillMaxHeight(0.99f)
             ) {
-                if (locationSelected) {
-                    LaunchedEffect(scaffoldState.bottomSheetState) {
-                        scaffoldState.bottomSheetState.expand()
+                NavHost(
+                    navController = navController,
+                    startDestination = "toilet_list"
+                ) {
+                    composable("toilet_list") {
+                        ToiletList(toilets = viewModel.toilets) { selectedToilet ->
+                            navController.navigate("toilet_detail/${selectedToilet.id}") {
+                                popUpTo(navController.graph.startDestinationId) {
+                                    inclusive = false
+                                }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        }
                     }
-                    SelectedToiletContent(toiletSelected!!)
-                } else {
-                    LaunchedEffect(scaffoldState.bottomSheetState) {
-                        scaffoldState.bottomSheetState.partialExpand()
-                    }
-                    ToiletListContent(toilets = toilets) { selectedToilet ->
-                        locationSelected = true
-                        toiletSelected = selectedToilet
+                    composable("toilet_detail/{toiletId}") { backStackEntry ->
+                        val toiletId =
+                            backStackEntry.arguments?.getString("toiletId")?.toIntOrNull()
+                        val toilet = toiletId?.let { viewModel.getToiletById(it) }
+                        if (toilet != null) {
+                            ToiletDetail(toilet)
+                        }
                     }
                 }
             }
@@ -91,7 +113,7 @@ fun HomeScreen(){
 }
 
 @Composable
-fun SelectedToiletContent(toilet: Toilet) {
+fun ToiletDetail(toilet: Toilet) {
     LazyColumn {
         item {
             ToiletPage(toilet = toilet)
@@ -100,15 +122,11 @@ fun SelectedToiletContent(toilet: Toilet) {
 }
 
 @Composable
-fun ToiletListContent(toilets: List<Toilet>, onToiletSelected: (Toilet) -> Unit) {
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
+fun ToiletList(toilets: List<Toilet>, onToiletSelected: (Toilet) -> Unit) {
+    LazyColumn {
         items(toilets) { toilet ->
             LocationCard(
                 toilet = toilet,
-                distance = generateRandomDistance(),
                 onClick = onToiletSelected
             )
         }
@@ -121,11 +139,13 @@ fun CustomDragHandle(
     color: Color = MaterialTheme.colorScheme.outline,
     shape: CornerBasedShape = MaterialTheme.shapes.extraLarge,
     width: Dp = 40.dp,
-    height: Dp = 4.dp
+    height: Dp = 4.dp,
+    onClick: () -> Unit = {}
 ) {
     Surface(
         modifier = Modifier
-            .padding(vertical = verticalPadding),
+            .padding(vertical = verticalPadding)
+            .clickable { onClick() },
         color = color,
         shape = shape
     ) {

@@ -29,7 +29,6 @@ import pt.iade.ei.thinktoilet.test.generateRandomToilet
 @Composable
 fun LocationCard(
     toilet: Toilet,
-    distance: Double,
     onClick: (Toilet) -> Unit
 ) {
     val scope = rememberCoroutineScope()
@@ -106,7 +105,7 @@ fun LocationCard(
             Column { // Distância
                 Text(
                     modifier = Modifier.padding(horizontal = 10.dp),
-                    text = distanceToString(distance),
+                    text = distanceToString(toilet.distance),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.SemiBold,
                     maxLines = 1
@@ -121,7 +120,6 @@ fun LocationCard(
 fun LocationCardPreview() {
     LocationCard(
         toilet = generateRandomToilet(),
-        distance = 1000.0,
         onClick = {}
     )
 }

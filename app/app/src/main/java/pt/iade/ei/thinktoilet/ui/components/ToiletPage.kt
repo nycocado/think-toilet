@@ -19,7 +19,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import pt.iade.ei.thinktoilet.R
 import pt.iade.ei.thinktoilet.models.Toilet
 import pt.iade.ei.thinktoilet.test.generateRandomToiletWithComments
@@ -141,6 +140,49 @@ fun ToiletPage(toilet: Toilet) {
     }
 }
 
+@Composable
+fun ToiletRating(toilet: Toilet) {
+    Row(
+        modifier = Modifier.padding(horizontal = 8.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Column(
+            modifier = Modifier.padding(end = 14.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row {
+                Text(
+                    text = "%.1f".format(toilet.getAverageRating()),
+                    style = MaterialTheme.typography.displayLarge,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Row {
+                Stars(
+                    rating = toilet.getAverageRating(), size = 20.dp
+                )
+            }
+        }
+        Column {
+            ProgressBar(
+                rating = toilet.ratingCategory.clean,
+                text = "Limpeza"
+            )
+            ProgressBar(
+                rating = toilet.ratingCategory.paper,
+                text = "Papel"
+            )
+            ProgressBar(
+                rating = toilet.ratingCategory.structure,
+                text = "Estrutura"
+            )
+            ProgressBar(
+                rating = toilet.ratingCategory.accessibility,
+                text = "Acessibilidade"
+            )
+        }
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
@@ -149,7 +191,7 @@ fun ToiletPagePreview() {
         dynamicColor = false
     ){
         ToiletPage(
-            toilet = generateRandomToiletWithComments(5)
+            toilet = generateRandomToiletWithComments()
         )
     }
 }
