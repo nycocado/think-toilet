@@ -52,13 +52,6 @@ fun MainView() {
                 composable("profile") { ProfileScreen() }
             }
         }
-    ) { innerPadding ->
-        Box(
-            Modifier
-                .padding(innerPadding)
-        ) {
-            BottomSheetScaffoldThinkToilet()
-        }
     }
 }
 
