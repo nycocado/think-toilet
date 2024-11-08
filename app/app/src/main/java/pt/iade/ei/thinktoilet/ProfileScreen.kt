@@ -1,6 +1,5 @@
 package pt.iade.ei.thinktoilet
 
-
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,9 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
-
 @Composable
-fun Perfil() {
+fun ProfileScreen() {
     Box(
         modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
     ) {
@@ -29,6 +27,6 @@ fun Perfil() {
 
 @Preview(showBackground = true)
 @Composable
-fun PerfilPreview() {
-    Perfil()
+fun ProfileScreenPreview() {
+    ProfileScreen()
 }
