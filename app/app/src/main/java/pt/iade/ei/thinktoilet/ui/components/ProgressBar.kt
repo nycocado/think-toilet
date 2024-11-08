@@ -43,6 +43,7 @@ fun ProgressBar(
                 rating / 5f
             },
             strokeCap = StrokeCap.Round,
+            color = MaterialTheme.colorScheme.secondary
         )
         Text(
             modifier = Modifier

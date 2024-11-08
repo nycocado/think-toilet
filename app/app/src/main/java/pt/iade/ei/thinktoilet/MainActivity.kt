@@ -21,7 +21,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AppTheme {
+            AppTheme(
+                dynamicColor = false
+            ) {
                 MainView()
             }
         }
@@ -49,6 +51,13 @@ fun MainView() {
                 composable("history") { HistoryScreen() }
                 composable("profile") { ProfileScreen() }
             }
+        }
+    ) { innerPadding ->
+        Box(
+            Modifier
+                .padding(innerPadding)
+        ) {
+            BottomSheetScaffoldThinkToilet()
         }
     }
 }
