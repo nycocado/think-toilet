@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable
 fun ProgressBar(
@@ -50,9 +51,8 @@ fun ProgressBar(
                 .padding(start = 8.dp)
                 .width(106.dp),
             text = text,
+            style = MaterialTheme.typography.labelMedium,
             fontWeight = FontWeight.Medium,
-            fontSize = 12.sp,
-            lineHeight = 16.sp,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
         )
@@ -62,5 +62,7 @@ fun ProgressBar(
 @Preview
 @Composable
 fun PreviewProgressBarCategories() {
-    ProgressBar(4.5f, "Limpeza")
+    AppTheme {
+        ProgressBar(4.5f, "Limpeza")
+    }
 }

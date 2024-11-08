@@ -3,6 +3,7 @@ package pt.iade.ei.thinktoilet.ui.components
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -10,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import pt.iade.ei.thinktoilet.models.Toilet
 import pt.iade.ei.thinktoilet.test.generateRandomToilet
+import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable
 fun ToiletRating(toilet: Toilet) {
@@ -27,8 +28,8 @@ fun ToiletRating(toilet: Toilet) {
             Row {
                 Text(
                     text = "%.1f".format(toilet.getAverageRating()),
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 50.sp
+                    style = MaterialTheme.typography.displayLarge,
+                    fontWeight = FontWeight.Bold
                 )
             }
             Row {
@@ -61,7 +62,9 @@ fun ToiletRating(toilet: Toilet) {
 @Preview(showBackground = true)
 @Composable
 fun ToiletRatingPreview() {
-    ToiletRating(
-        toilet = generateRandomToilet()
-    )
+    AppTheme {
+        ToiletRating(
+            toilet = generateRandomToilet()
+        )
+    }
 }

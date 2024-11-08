@@ -32,8 +32,8 @@ fun ToiletPage(toilet: Toilet) {
     ) {
         Text(
             text = toilet.name,
-            fontWeight = FontWeight.SemiBold,
-            fontSize = 28.sp
+            style = MaterialTheme.typography.headlineMedium,
+            fontWeight = FontWeight.Bold
         )
         Row(
             modifier = Modifier.padding(
@@ -48,8 +48,8 @@ fun ToiletPage(toilet: Toilet) {
             Text(
                 modifier = Modifier.padding(horizontal = 4.dp),
                 text = "%.1f".format(toilet.getAverageRating()),
-                fontWeight = FontWeight.SemiBold,
-                fontSize = 16.sp
+                fontStyle = MaterialTheme.typography.bodyMedium.fontStyle,
+                fontWeight = FontWeight.SemiBold
             )
         }
         Card(
@@ -70,8 +70,8 @@ fun ToiletPage(toilet: Toilet) {
             ) {
                 Text(
                     text = toilet.address,
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 16.sp
+                    style = MaterialTheme.typography.bodyLarge,
+                    fontWeight = FontWeight.Medium
                 )
             }
             Column {
@@ -80,14 +80,14 @@ fun ToiletPage(toilet: Toilet) {
                     colors = ButtonColors(
                         containerColor = MaterialTheme.colorScheme.primaryContainer,
                         contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                        disabledContainerColor = MaterialTheme.colorScheme.primaryContainer,
-                        disabledContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                        disabledContainerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f),
+                        disabledContentColor = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.5f)
                     )
                 ) {
                     Text(
                         text = "Ir para o Maps",
-                        fontWeight = FontWeight.Medium,
-                        fontSize = 16.sp
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = FontWeight.SemiBold
                     )
                 }
             }
@@ -110,8 +110,8 @@ fun ToiletPage(toilet: Toilet) {
         ) {
             Text(
                 text = "Avaliar",
+                style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Bold,
-                fontSize = 16.sp
             )
         }
         Row(
@@ -122,16 +122,16 @@ fun ToiletPage(toilet: Toilet) {
         ) {
             Text(
                 modifier = Modifier.padding(
-                    end = 6.dp,
+                    end = 10.dp,
                 ),
                 text = "Avaliações",
+                style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
-                fontSize = 20.sp
             )
             Text(
                 text = toilet.comments.size.toString(),
+                style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Medium,
-                fontSize = 14.sp,
                 color = Color.Gray
             )
         }
