@@ -29,7 +29,6 @@ import pt.iade.ei.thinktoilet.test.generateRandomToilet
 @Composable
 fun LocationCard(
     toilet: Toilet,
-    distance: Double,
     onClick: (Toilet) -> Unit
 ) {
     val scope = rememberCoroutineScope()
@@ -52,7 +51,12 @@ fun LocationCard(
                 shape = MaterialTheme.shapes.medium
             ),
         shape = MaterialTheme.shapes.medium,
-        colors = CardDefaults.cardColors(containerColor = Color.White),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
+            contentColor = MaterialTheme.colorScheme.onSurface,
+            disabledContainerColor = MaterialTheme.colorScheme.surfaceContainerLowest.copy(alpha = 0.5f),
+            disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+        ),
         elevation = CardDefaults.cardElevation(2.dp)
     ) { // Container (Serve para aplicar o border radius)
         Row(
@@ -69,8 +73,8 @@ fun LocationCard(
                     Text(
                         modifier = Modifier.fillMaxWidth(),
                         text = toilet.name,
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 18.sp,
+                        style = MaterialTheme.typography.titleLarge,
+                        fontWeight = FontWeight.Bold,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                     )
@@ -82,8 +86,8 @@ fun LocationCard(
                     Text(
                         modifier = Modifier.padding(horizontal = 2.dp),
                         text = "(${toilet.numComments})",
+                        style = MaterialTheme.typography.labelSmall,
                         fontWeight = FontWeight.SemiBold,
-                        fontSize = 10.sp,
                         lineHeight = 1.sp
                     )
                 }
@@ -91,8 +95,8 @@ fun LocationCard(
                     Text(
                         modifier = Modifier.fillMaxWidth(),
                         text = toilet.address,
+                        style = MaterialTheme.typography.labelMedium,
                         fontWeight = FontWeight.SemiBold,
-                        fontSize = 12.sp,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
                     )
@@ -101,9 +105,9 @@ fun LocationCard(
             Column { // Distância
                 Text(
                     modifier = Modifier.padding(horizontal = 10.dp),
-                    text = distanceToString(distance),
+                    text = distanceToString(toilet.distance),
+                    style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.SemiBold,
-                    fontSize = 18.sp,
                     maxLines = 1
                 )
             }
@@ -116,7 +120,6 @@ fun LocationCard(
 fun LocationCardPreview() {
     LocationCard(
         toilet = generateRandomToilet(),
-        distance = 1000.0,
         onClick = {}
     )
 }
