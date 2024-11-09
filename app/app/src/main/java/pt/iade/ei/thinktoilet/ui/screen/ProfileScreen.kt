@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet
+package pt.iade.ei.thinktoilet.ui.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,12 +15,17 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+<<<<<<< HEAD:app/app/src/main/java/pt/iade/ei/thinktoilet/ProfileScreen.kt
 import pt.iade.ei.thinktoilet.test.generateUserMain
 import pt.iade.ei.thinktoilet.ui.components.Profile
 import pt.iade.ei.thinktoilet.ui.components.ProfileStatus
+=======
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+>>>>>>> nycolas:app/app/src/main/java/pt/iade/ei/thinktoilet/ui/screen/ProfileScreen.kt
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavController = rememberNavController()) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {

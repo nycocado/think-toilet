@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.models
+package pt.iade.ei.thinktoilet.model
 
 import androidx.compose.ui.graphics.vector.ImageVector
 
