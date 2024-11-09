@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.screen
+package pt.iade.ei.thinktoilet.ui.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +15,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import pt.iade.ei.thinktoilet.test.generateUserMain
+import pt.iade.ei.thinktoilet.tests.generateUserMain
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import pt.iade.ei.thinktoilet.ui.components.Profile

@@ -14,10 +14,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import pt.iade.ei.thinktoilet.ui.component.BottomNavigationBar
-import pt.iade.ei.thinktoilet.ui.screen.HistoryScreen
-import pt.iade.ei.thinktoilet.ui.screen.HomeScreen
-import pt.iade.ei.thinktoilet.ui.screen.ProfileScreen
+import pt.iade.ei.thinktoilet.ui.components.BottomNavigationBar
+import pt.iade.ei.thinktoilet.ui.screens.HistoryScreen
+import pt.iade.ei.thinktoilet.ui.screens.HomeScreen
+import pt.iade.ei.thinktoilet.ui.screens.ProfileScreen
 import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.component
+package pt.iade.ei.thinktoilet.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -20,8 +20,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import pt.iade.ei.thinktoilet.R
-import pt.iade.ei.thinktoilet.model.Toilet
-import pt.iade.ei.thinktoilet.test.generateRandomToiletWithComments
+import pt.iade.ei.thinktoilet.models.Toilet
+import pt.iade.ei.thinktoilet.tests.generateRandomToiletWithComments
 import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable

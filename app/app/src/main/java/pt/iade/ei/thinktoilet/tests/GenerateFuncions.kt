@@ -1,11 +1,11 @@
-package pt.iade.ei.thinktoilet.test
+package pt.iade.ei.thinktoilet.tests
 
-import pt.iade.ei.thinktoilet.model.Comment
-import pt.iade.ei.thinktoilet.model.Position
-import pt.iade.ei.thinktoilet.model.RatingCategory
-import pt.iade.ei.thinktoilet.model.Toilet
-import pt.iade.ei.thinktoilet.model.UserForeigner
-import pt.iade.ei.thinktoilet.model.UserMain
+import pt.iade.ei.thinktoilet.models.Comment
+import pt.iade.ei.thinktoilet.models.Position
+import pt.iade.ei.thinktoilet.models.RatingCategory
+import pt.iade.ei.thinktoilet.models.Toilet
+import pt.iade.ei.thinktoilet.models.UserForeigner
+import pt.iade.ei.thinktoilet.models.UserMain
 import pt.iade.ei.thinktoilet.models.ToiletReviews
 import java.time.LocalDateTime
 

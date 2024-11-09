@@ -1,8 +1,8 @@
-package pt.iade.ei.thinktoilet.viewmodel
+package pt.iade.ei.thinktoilet.viewmodels
 
 import androidx.lifecycle.ViewModel
-import pt.iade.ei.thinktoilet.model.Toilet
-import pt.iade.ei.thinktoilet.test.generateRandomToiletsWithComments
+import pt.iade.ei.thinktoilet.models.Toilet
+import pt.iade.ei.thinktoilet.tests.generateRandomToiletsWithComments
 
 class ToiletViewModel: ViewModel() {
     val toilets: List<Toilet> = generateRandomToiletsWithComments(numToilets = 5)

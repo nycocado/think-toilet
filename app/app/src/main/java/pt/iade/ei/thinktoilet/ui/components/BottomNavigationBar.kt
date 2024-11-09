@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.component
+package pt.iade.ei.thinktoilet.ui.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import pt.iade.ei.thinktoilet.model.BottomNavigationItem
+import pt.iade.ei.thinktoilet.models.BottomNavigationItem
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {

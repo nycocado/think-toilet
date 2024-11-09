@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.component
+package pt.iade.ei.thinktoilet.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -22,8 +22,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import pt.iade.ei.thinktoilet.R
-import pt.iade.ei.thinktoilet.model.Comment
-import pt.iade.ei.thinktoilet.test.generateComment
+import pt.iade.ei.thinktoilet.models.Comment
+import pt.iade.ei.thinktoilet.tests.generateComment
 import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable

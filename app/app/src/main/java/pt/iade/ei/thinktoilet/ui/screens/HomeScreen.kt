@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.screen
+package pt.iade.ei.thinktoilet.ui.screens
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -29,10 +29,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
-import pt.iade.ei.thinktoilet.model.Toilet
-import pt.iade.ei.thinktoilet.viewmodel.ToiletViewModel
-import pt.iade.ei.thinktoilet.ui.component.LocationCard
-import pt.iade.ei.thinktoilet.ui.component.ToiletPage
+import pt.iade.ei.thinktoilet.models.Toilet
+import pt.iade.ei.thinktoilet.viewmodels.ToiletViewModel
+import pt.iade.ei.thinktoilet.ui.components.LocationCard
+import pt.iade.ei.thinktoilet.ui.components.ToiletPage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

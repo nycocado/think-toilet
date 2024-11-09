@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.component
+package pt.iade.ei.thinktoilet.ui.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement

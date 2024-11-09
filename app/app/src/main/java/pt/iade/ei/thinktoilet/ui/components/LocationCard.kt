@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.component
+package pt.iade.ei.thinktoilet.ui.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -22,9 +22,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
-import pt.iade.ei.thinktoilet.model.Toilet
-import pt.iade.ei.thinktoilet.model.distanceToString
-import pt.iade.ei.thinktoilet.test.generateRandomToilet
+import pt.iade.ei.thinktoilet.models.Toilet
+import pt.iade.ei.thinktoilet.models.distanceToString
+import pt.iade.ei.thinktoilet.tests.generateRandomToilet
 
 @Composable
 fun LocationCard(
