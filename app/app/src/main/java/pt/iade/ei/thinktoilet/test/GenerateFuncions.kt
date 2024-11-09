@@ -1,20 +1,12 @@
 package pt.iade.ei.thinktoilet.test
 
-<<<<<<< HEAD:app/app/src/main/java/pt/iade/ei/thinktoilet/test/Test.kt
-import pt.iade.ei.thinktoilet.models.Comment
-import pt.iade.ei.thinktoilet.models.ToiletReviews
-import pt.iade.ei.thinktoilet.models.Position
-import pt.iade.ei.thinktoilet.models.RatingCategory
-import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.models.UserForeigner
-import pt.iade.ei.thinktoilet.models.UserMain
-=======
 import pt.iade.ei.thinktoilet.model.Comment
 import pt.iade.ei.thinktoilet.model.Position
 import pt.iade.ei.thinktoilet.model.RatingCategory
 import pt.iade.ei.thinktoilet.model.Toilet
 import pt.iade.ei.thinktoilet.model.UserForeigner
->>>>>>> nycolas:app/app/src/main/java/pt/iade/ei/thinktoilet/test/GenerateFuncions.kt
+import pt.iade.ei.thinktoilet.model.UserMain
+import pt.iade.ei.thinktoilet.models.ToiletReviews
 import java.time.LocalDateTime
 
 fun generateRandomRatingCategory(): RatingCategory {
@@ -125,7 +117,7 @@ fun generateCommentsList(numComments: Int = (10..40).random()): List<Comment> {
     return commentsList
 }
 
-fun generateToiletReviews(): ToiletReviews{
+fun generateToiletReviews(): ToiletReviews {
     return ToiletReviews(
         toilet = generateRandomToilet(),
         user = generateUser(),

@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import pt.iade.ei.thinktoilet.models.ToiletReviews
 import pt.iade.ei.thinktoilet.test.generateToiletReviews
-
+import pt.iade.ei.thinktoilet.ui.component.Stars
 
 @Composable
 fun ProfileCritiques(ToiletReviews: ToiletReviews) {
