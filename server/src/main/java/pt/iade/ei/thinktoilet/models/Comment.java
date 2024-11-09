@@ -37,6 +37,9 @@ public class Comment {
     @Column(name = "cmm_cdatetime")
     private LocalDateTime cdatetime;
 
+    @Column(name = "cmm_score")
+    private int score;
+
     public Comment() {
     }
 
@@ -72,6 +75,10 @@ public class Comment {
         return cdatetime;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -102,5 +109,9 @@ public class Comment {
 
     public void setCdatetime(LocalDateTime cdatetime) {
         this.cdatetime = cdatetime;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }
