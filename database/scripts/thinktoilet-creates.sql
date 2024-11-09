@@ -115,6 +115,7 @@ create table comment (
 					cmm_rstructure INT NOT NULL,
 					cmm_raccessibility INT NOT NULL,
 					cmm_cdatetime DATETIME NOT NULL,
+					cmm_score INT NOT NULL,
 					primary key (cmm_id)
 );
 
