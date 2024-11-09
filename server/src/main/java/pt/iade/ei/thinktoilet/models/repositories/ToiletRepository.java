@@ -1,0 +1,13 @@
+package pt.iade.ei.thinktoilet.models.repositories;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import pt.iade.ei.thinktoilet.models.Toilet;
+
+import java.util.List;
+
+@Repository
+public interface ToiletRepository extends CrudRepository<Toilet, Integer> {
+    Iterable<Toilet> findById(int id);
+    Iterable<Toilet> findAll();
+}
