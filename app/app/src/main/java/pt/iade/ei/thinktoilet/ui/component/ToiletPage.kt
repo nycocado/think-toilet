@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.components
+package pt.iade.ei.thinktoilet.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -20,7 +20,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import pt.iade.ei.thinktoilet.R
-import pt.iade.ei.thinktoilet.models.Toilet
+import pt.iade.ei.thinktoilet.model.Toilet
 import pt.iade.ei.thinktoilet.test.generateRandomToiletWithComments
 import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
@@ -75,7 +75,7 @@ fun ToiletPage(toilet: Toilet) {
             }
             Column {
                 Button(
-                    onClick = { /* TODO */ },
+                    onClick = {  },
                     colors = ButtonColors(
                         containerColor = MaterialTheme.colorScheme.primaryContainer,
                         contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -165,19 +165,19 @@ fun ToiletRating(toilet: Toilet) {
         }
         Column {
             ProgressBar(
-                rating = toilet.ratingCategory.clean,
+                progress = toilet.ratingCategory.clean,
                 text = "Limpeza"
             )
             ProgressBar(
-                rating = toilet.ratingCategory.paper,
+                progress = toilet.ratingCategory.paper,
                 text = "Papel"
             )
             ProgressBar(
-                rating = toilet.ratingCategory.structure,
+                progress = toilet.ratingCategory.structure,
                 text = "Estrutura"
             )
             ProgressBar(
-                rating = toilet.ratingCategory.accessibility,
+                progress = toilet.ratingCategory.accessibility,
                 text = "Acessibilidade"
             )
         }

@@ -1,6 +1,7 @@
-package pt.iade.ei.thinktoilet.models
+package pt.iade.ei.thinktoilet.viewmodel
 
 import androidx.lifecycle.ViewModel
+import pt.iade.ei.thinktoilet.model.Toilet
 import pt.iade.ei.thinktoilet.test.generateRandomToiletsWithComments
 
 class ToiletViewModel: ViewModel() {

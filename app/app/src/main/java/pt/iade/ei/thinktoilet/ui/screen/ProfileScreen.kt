@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet
+package pt.iade.ei.thinktoilet.ui.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,9 +9,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavController = rememberNavController()) {
     Box(
         modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
     ) {

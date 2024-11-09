@@ -1,10 +1,10 @@
 package pt.iade.ei.thinktoilet.test
 
-import pt.iade.ei.thinktoilet.models.Comment
-import pt.iade.ei.thinktoilet.models.Position
-import pt.iade.ei.thinktoilet.models.RatingCategory
-import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.models.UserForeigner
+import pt.iade.ei.thinktoilet.model.Comment
+import pt.iade.ei.thinktoilet.model.Position
+import pt.iade.ei.thinktoilet.model.RatingCategory
+import pt.iade.ei.thinktoilet.model.Toilet
+import pt.iade.ei.thinktoilet.model.UserForeigner
 import java.time.LocalDateTime
 
 fun generateRandomRatingCategory(): RatingCategory {
@@ -25,7 +25,7 @@ fun generateRandomPosition(): Position {
 
 fun generateRandomToilet(): Toilet{
     return Toilet(
-        id = (0..100).random(),
+        id = 1,
         name = "Toilet ${(0..100).random()}",
         address = "Address ${(0..100).random()}",
         ratingCategory = generateRandomRatingCategory(),

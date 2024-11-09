@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.components
+package pt.iade.ei.thinktoilet.ui.component
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
@@ -12,22 +12,20 @@ import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemColors
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.modifier.modifierLocalMapOf
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import pt.iade.ei.thinktoilet.models.BottomNavigationItem
-import kotlin.math.max
+import pt.iade.ei.thinktoilet.model.BottomNavigationItem
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -35,6 +33,10 @@ fun BottomNavigationBar(navController: NavController) {
     val bottomNavigationItems = bottomNavigationItems()
     var selectedItemIndex by rememberSaveable {
         mutableIntStateOf(0)
+    }
+
+    LaunchedEffect(currentRoute) {
+        selectedItemIndex = bottomNavigationItems.indexOfFirst { it.router == currentRoute }
     }
 
     NavigationBar(

@@ -1,9 +1,8 @@
-package pt.iade.ei.thinktoilet
+package pt.iade.ei.thinktoilet.ui.screen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -24,31 +23,42 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
-import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.models.ToiletViewModel
-import pt.iade.ei.thinktoilet.ui.components.LocationCard
-import pt.iade.ei.thinktoilet.ui.components.ToiletPage
+import pt.iade.ei.thinktoilet.model.Toilet
+import pt.iade.ei.thinktoilet.viewmodel.ToiletViewModel
+import pt.iade.ei.thinktoilet.ui.component.LocationCard
+import pt.iade.ei.thinktoilet.ui.component.ToiletPage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    navController: NavController = rememberNavController(),
+    initialToiletID: Int? = null,
+    initialSheetValue: SheetValue = SheetValue.PartiallyExpanded,
+    viewModel: ToiletViewModel = viewModel()
+) {
+    val bottomSheetNavController = rememberNavController()
+    val scope = rememberCoroutineScope()
+    val currentRoute = bottomSheetNavController.currentBackStackEntryAsState().value?.destination?.route
     val scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberStandardBottomSheetState(
-            initialValue = SheetValue.PartiallyExpanded,
+            initialValue = initialSheetValue,
             confirmValueChange = {
                 it == SheetValue.Expanded || it == SheetValue.PartiallyExpanded
             }
         )
     )
-    val scope = rememberCoroutineScope()
-    val navController = rememberNavController()
-    val viewModel: ToiletViewModel = viewModel()
-    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+
+    LaunchedEffect(initialToiletID) {
+        if (initialToiletID != null) {
+            bottomSheetNavController.navigate("toilet_detail/$initialToiletID")
+        }
+    }
 
     LaunchedEffect(currentRoute) {
         if (currentRoute == "toilet_detail/{toiletId}") {
@@ -80,17 +90,16 @@ fun HomeScreen() {
         },
         sheetContent = {
             Box(
-                modifier = Modifier
-                    .fillMaxHeight(0.99f)
+                modifier = Modifier.fillMaxHeight(0.99f)
             ) {
                 NavHost(
-                    navController = navController,
+                    navController = bottomSheetNavController,
                     startDestination = "toilet_list"
                 ) {
                     composable("toilet_list") {
                         ToiletList(toilets = viewModel.toilets) { selectedToilet ->
-                            navController.navigate("toilet_detail/${selectedToilet.id}") {
-                                popUpTo(navController.graph.startDestinationId) {
+                            bottomSheetNavController.navigate("toilet_detail/${selectedToilet.id}") {
+                                popUpTo(bottomSheetNavController.graph.startDestinationId) {
                                     inclusive = false
                                 }
                                 launchSingleTop = true

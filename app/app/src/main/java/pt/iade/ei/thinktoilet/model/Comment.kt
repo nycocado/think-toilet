@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.models
+package pt.iade.ei.thinktoilet.model
 
 import java.io.Serializable
 import java.time.LocalDateTime

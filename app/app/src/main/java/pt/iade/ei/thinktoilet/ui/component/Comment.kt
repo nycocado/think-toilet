@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.components
+package pt.iade.ei.thinktoilet.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -16,14 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import pt.iade.ei.thinktoilet.R
-import pt.iade.ei.thinktoilet.models.Comment
+import pt.iade.ei.thinktoilet.model.Comment
 import pt.iade.ei.thinktoilet.test.generateComment
 import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 

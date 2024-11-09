@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.components
+package pt.iade.ei.thinktoilet.ui.component
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -22,7 +22,7 @@ import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable
 fun ProgressBar(
-    rating: Float,
+    progress: Float,
     text: String
 ) {
     Row(
@@ -40,7 +40,7 @@ fun ProgressBar(
                     shape = MaterialTheme.shapes.small
                 ),
             progress = {
-                rating / 5f
+                progress / 5f
             },
             strokeCap = StrokeCap.Round,
             color = MaterialTheme.colorScheme.secondary
@@ -58,10 +58,11 @@ fun ProgressBar(
     }
 }
 
+
 @Preview
 @Composable
 fun PreviewProgressBarCategories() {
     AppTheme {
-        ProgressBar(4.5f, "Limpeza")
+        ProgressBar(4.5f, "Teste")
     }
 }

@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.components
+package pt.iade.ei.thinktoilet.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
