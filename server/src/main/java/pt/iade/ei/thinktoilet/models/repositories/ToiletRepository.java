@@ -6,5 +6,5 @@ import pt.iade.ei.thinktoilet.models.Toilet;
 
 @Repository
 public interface ToiletRepository extends CrudRepository<Toilet, Integer> {
-
+    Iterable<Toilet> findById(int id);
 }
