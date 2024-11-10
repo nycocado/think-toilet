@@ -19,22 +19,21 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import pt.iade.ei.thinktoilet.R
 import pt.iade.ei.thinktoilet.models.UserMain
 import pt.iade.ei.thinktoilet.tests.generateUserMain
+import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 
 @Composable
 fun Profile(userMain: UserMain) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier.fillMaxWidth()
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 30.dp)
     ) {
-        Row(
-            modifier = Modifier.padding(
-                top = 20.dp,
-            )
-        ) {
+        Row {
             Image(
                 modifier = Modifier
                     .size(190.dp)
@@ -51,7 +50,7 @@ fun Profile(userMain: UserMain) {
                 text = userMain.name,
                 modifier = Modifier.padding(top = 10.dp),
                 fontWeight = FontWeight.SemiBold,
-                fontSize = 26.sp,
+                style = MaterialTheme.typography.headlineMedium,
                 maxLines = 1,
             )
         }
@@ -60,16 +59,17 @@ fun Profile(userMain: UserMain) {
                 text = userMain.email,
                 modifier = Modifier.padding(5.dp),
                 fontWeight = FontWeight.Normal,
-                fontSize = 20.sp,
+                style = MaterialTheme.typography.titleLarge,
                 maxLines = 1,
             )
         }
         Row {
             Text(
+                modifier = Modifier.padding(top = 8.dp),
                 text = userMain.points.toString() + " points",
                 fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.secondary,
-                fontSize = 20.sp,
+                style = MaterialTheme.typography.headlineSmall,
                 maxLines = 1,
             )
         }
@@ -79,5 +79,7 @@ fun Profile(userMain: UserMain) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewProfile() {
-    Profile(generateUserMain())
+    AppTheme {
+        Profile(generateUserMain())
+    }
 }
