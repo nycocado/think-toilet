@@ -30,8 +30,7 @@ fun HistoryScreen() {
         LazyColumn {
             items(toilets) { toilet ->
                 HistoryCard(
-                    toilet = toilet,
-
+                    toilet = toilet
                 )
             }
         }
