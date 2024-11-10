@@ -37,7 +37,7 @@ fun Profile(userMain: UserMain) {
         ) {
             Image(
                 modifier = Modifier
-                    .size(190.dp) // Size of Image checked if is good...
+                    .size(190.dp)
                     .clip(CircleShape)
                     .border(
                         width = 5.dp, color = Color.Gray, shape = CircleShape
@@ -51,26 +51,25 @@ fun Profile(userMain: UserMain) {
                 text = userMain.name,
                 modifier = Modifier.padding(top = 10.dp),
                 fontWeight = FontWeight.SemiBold,
-                fontSize = 32.sp,
-                maxLines = 1,
-            )
-        }
-        Row {
-            Text(
-                text = userMain.email,
-                modifier = Modifier.padding(top = 10.dp),
-                fontWeight = FontWeight.Normal,
                 fontSize = 26.sp,
                 maxLines = 1,
             )
         }
         Row {
             Text(
-                text = userMain.points.toString() + " points",
-                modifier = Modifier.padding(top = 10.dp),
+                text = userMain.email,
+                modifier = Modifier.padding(5.dp),
                 fontWeight = FontWeight.Normal,
+                fontSize = 20.sp,
+                maxLines = 1,
+            )
+        }
+        Row {
+            Text(
+                text = userMain.points.toString() + " points",
+                fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.secondary,
-                fontSize = 24.sp,
+                fontSize = 20.sp,
                 maxLines = 1,
             )
         }
