@@ -5,13 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pt.iade.ei.thinktoilet.models.repositories.ToiletRepository;
+import pt.iade.ei.thinktoilet.models.repositories.ReportRepository;
 
 @RestController
-@RequestMapping(path = "/api/toilets")
-public class ToiletController {
-    private Logger logger = LoggerFactory.getLogger(ToiletController.class);
+@RequestMapping(path = "/api/reports")
+public class ReportController {
+    private Logger logger = LoggerFactory.getLogger(ReportController.class);
     @Autowired
-    private ToiletRepository toiletRepository;
+    private ReportRepository reportRepository;
 
 }
