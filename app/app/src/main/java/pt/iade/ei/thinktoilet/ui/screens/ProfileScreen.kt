@@ -29,9 +29,7 @@ fun ProfileScreen(
         LazyColumn {
             item {
                 ProfilePage(
-                    user = viewModel.user,
-                    viewModel = viewModel,
-                    navController = navController
+                    userMain = viewModel.getUser(),
                 )
             }
         }

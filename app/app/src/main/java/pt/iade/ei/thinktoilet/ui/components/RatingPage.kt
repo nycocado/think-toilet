@@ -36,7 +36,7 @@ import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable
 fun RatingPage(
-    user: UserMain,
+    userMain: UserMain,
 ) {
     Column {
         Row(
@@ -51,7 +51,7 @@ fun RatingPage(
                 fontWeight = FontWeight.Bold
             )
         }
-        RatingUser(user)
+        RatingUser(userMain)
         RatingComment()
         HorizontalDivider(
             modifier = Modifier
@@ -81,7 +81,7 @@ fun RatingPage(
 
 @Composable
 fun RatingUser(
-    user: UserMain,
+    userMain: UserMain,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -105,7 +105,7 @@ fun RatingUser(
         ) {
             Row {
                 Text(
-                    text = user.name,
+                    text = userMain.user.name,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Normal,
                     maxLines = 1,
@@ -185,6 +185,6 @@ fun RatingItem(
 @Composable
 fun RatingPagePreview() {
     AppTheme {
-        RatingPage(user = generateUserMain())
+        RatingPage(userMain = generateUserMain())
     }
 }
