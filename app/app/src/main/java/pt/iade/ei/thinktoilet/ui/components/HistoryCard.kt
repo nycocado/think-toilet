@@ -21,9 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.models.ToiletDetailed
 import pt.iade.ei.thinktoilet.tests.generateRandomToilet
-import pt.iade.ei.thinktoilet.tests.generateRandomToiletDetailed
 import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable

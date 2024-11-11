@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.models.ToiletDetailed
 import pt.iade.ei.thinktoilet.models.distanceToString
-import pt.iade.ei.thinktoilet.tests.generateRandomToilet
 import pt.iade.ei.thinktoilet.tests.generateRandomToiletDetailed
 
 @Composable

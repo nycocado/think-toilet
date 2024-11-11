@@ -15,6 +15,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -29,9 +30,9 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.models.ToiletDetailed
-import pt.iade.ei.thinktoilet.viewmodels.LocalViewModel
 import pt.iade.ei.thinktoilet.ui.components.LocationCard
 import pt.iade.ei.thinktoilet.ui.components.ToiletPage
+import pt.iade.ei.thinktoilet.viewmodels.LocalViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +43,7 @@ fun HomeScreen(
 ) {
     val bottomSheetNavController = rememberNavController()
     val scope = rememberCoroutineScope()
-    val currentRoute =
+    val bottomSheetCurrentRoute =
         bottomSheetNavController.currentBackStackEntryAsState().value?.destination?.route
     val scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberStandardBottomSheetState(
@@ -61,11 +62,18 @@ fun HomeScreen(
                 }
                 launchSingleTop = false
             }
+        } else {
+            bottomSheetNavController.navigate("toilet_list") {
+                popUpTo(bottomSheetNavController.graph.startDestinationId) {
+                    inclusive = false
+                }
+                launchSingleTop = false
+            }
         }
     }
 
-    LaunchedEffect(currentRoute) {
-        if (currentRoute == "toilet_detail") {
+    LaunchedEffect(bottomSheetCurrentRoute, ) {
+        if (bottomSheetCurrentRoute == "toilet_detail") {
             scaffoldState.bottomSheetState.expand()
         } else {
             scaffoldState.bottomSheetState.partialExpand()
@@ -129,9 +137,9 @@ fun ToiletDetail(
 ) {
     LazyColumn {
         item {
-            ToiletPage(toiletDetailed = toiletDetailed){
-                navController.navigate("rating"){
-                    popUpTo(navController.graph.startDestinationId){
+            ToiletPage(toiletDetailed = toiletDetailed) {
+                navController.navigate("rating") {
+                    popUpTo(navController.graph.startDestinationId) {
                         inclusive = false
                     }
                     launchSingleTop = true
