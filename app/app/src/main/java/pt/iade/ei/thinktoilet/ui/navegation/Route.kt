@@ -16,7 +16,7 @@ object Routes{
     const val Rating = "rating"
     const val HomeToiletDetail = "home/{toiletId}"
 
-    fun HomeToiletDetail(toiletId: String) = "home/$toiletId"
+    fun HomeToiletDetail(toiletId: Int) = "home/$toiletId"
 }
 
 sealed class NavRoute(

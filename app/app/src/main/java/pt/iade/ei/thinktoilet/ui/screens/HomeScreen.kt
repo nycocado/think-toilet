@@ -15,7 +15,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,28 +25,30 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.models.Toilet
 import pt.iade.ei.thinktoilet.ui.components.LocationCard
+import pt.iade.ei.thinktoilet.ui.navegation.BottomSheetNavigation
+import pt.iade.ei.thinktoilet.ui.navegation.Routes
 import pt.iade.ei.thinktoilet.ui.pages.ToiletPage
 import pt.iade.ei.thinktoilet.viewmodels.LocalViewModel
+
+val LocalNavHostController = compositionLocalOf<NavController> { error("NavHostController ERRO") }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    navController: NavController = rememberNavController(),
+    mainNavController: NavController = rememberNavController(),
     initialSheetValue: SheetValue = SheetValue.PartiallyExpanded,
     viewModel: LocalViewModel = viewModel(),
     selectedToiletId: Int? = null,
 ) {
-    val bottomSheetNavController = rememberNavController()
+    val navController = rememberNavController()
     val scope = rememberCoroutineScope()
     val bottomSheetCurrentRoute =
-        bottomSheetNavController.currentBackStackEntryAsState().value?.destination?.route
+        navController.currentBackStackEntryAsState().value?.destination?.route
     val scaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = rememberStandardBottomSheetState(
             initialValue = initialSheetValue,
@@ -56,7 +60,7 @@ fun HomeScreen(
 
     LaunchedEffect(selectedToiletId) {
         if (selectedToiletId != null) {
-            bottomSheetNavController.navigate("home/$selectedToiletId")
+            navController.navigate(Routes.HomeToiletDetail(selectedToiletId))
         }
     }
 
@@ -77,38 +81,28 @@ fun HomeScreen(
             }
         }
     }
-
-    BottomSheetScaffold(
-        scaffoldState = scaffoldState,
-        sheetPeekHeight = 140.dp,
-        sheetShadowElevation = 8.dp,
-        sheetContainerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-        sheetDragHandle = {
-            CustomDragHandle {
-                toggleSheetState()
-            }
-        },
-        sheetContent = {
-            Box(
-                modifier = Modifier.fillMaxHeight(0.99f)
-            ) {
-                NavHost(
-                    navController = bottomSheetNavController,
-                    startDestination = "home"
-                ) {
-                    composable("home") {
-                        ToiletList(toilets = viewModel.getToilets()) { toiletId ->
-                            bottomSheetNavController.navigate("home/$toiletId")
-                        }
-                    }
-                    composable("home/{toiletId}") { backStackEntry ->
-                        val toiletId = backStackEntry.arguments?.getString("toiletId")!!.toInt()
-                        ToiletDetail(navController = navController, viewModel = viewModel, toiletId = toiletId)
-                    }
+    CompositionLocalProvider(
+        LocalNavHostController provides navController
+    ) {
+        BottomSheetScaffold(
+            scaffoldState = scaffoldState,
+            sheetPeekHeight = 140.dp,
+            sheetShadowElevation = 8.dp,
+            sheetContainerColor = MaterialTheme.colorScheme.surfaceContainerLow,
+            sheetDragHandle = {
+                CustomDragHandle {
+                    toggleSheetState()
                 }
-            }
-        },
-    ) {}
+            },
+            sheetContent = {
+                Box(
+                    modifier = Modifier.fillMaxHeight(0.99f)
+                ) {
+                    BottomSheetNavigation(navController, mainNavController, viewModel)
+                }
+            },
+        ) {}
+    }
 }
 
 @Composable
