@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.models.ToiletDetailed
 import pt.iade.ei.thinktoilet.models.User
 import pt.iade.ei.thinktoilet.models.UserMain
-import pt.iade.ei.thinktoilet.tests.generateRandomToiletsDetailed
+import pt.iade.ei.thinktoilet.tests.generateRandomToilets
 import pt.iade.ei.thinktoilet.tests.generateUserMain
 import pt.iade.ei.thinktoilet.tests.generateUsers
 
@@ -18,59 +17,44 @@ class LocalViewModel : ViewModel() {
     private val _users = MutableLiveData<HashMap<Int, User>>()
     val users: LiveData<HashMap<Int, User>> get() = _users
 
-    private val _toiletsDetailed = MutableLiveData<HashMap<Int, ToiletDetailed>>()
-    val toiletsDetailed: LiveData<HashMap<Int, ToiletDetailed>> get() = _toiletsDetailed
-
-    private val _selectedToiletDetailedId = MutableLiveData<Int?>()
-    val selectedToiletDetailedId: LiveData<Int?> get() = _selectedToiletDetailedId
-
-    private val _fromOutside = MutableLiveData<Boolean>()
-    val fromOutside: LiveData<Boolean> get() = _fromOutside
+    private val _toilets = MutableLiveData<HashMap<Int, Toilet>>()
+    val toilets: LiveData<HashMap<Int, Toilet>> get() = _toilets
 
     init {
-        _fromOutside.value = false
         _user.value = generateUserMain()
         _users.value = generateUsers(10)
-        _toiletsDetailed.value = generateRandomToiletsDetailed(20)
+        _toilets.value = generateRandomToilets(20)
     }
 
-    fun getUser(): UserMain {
+    fun getUserMain(): UserMain {
         return _user.value!!
     }
 
-    fun getUserById(id: Int): User? {
+    fun getUser(id: Int): User? {
         return _users.value?.get(id)
     }
 
-    fun getToiletDetailedById(id: Int): ToiletDetailed? {
-        return _toiletsDetailed.value?.get(id)
+    fun getToilet(id: Int): Toilet? {
+        return _toilets.value?.get(id)
     }
 
-    fun getToiletById(id: Int): Toilet? {
-        return getToiletDetailedById(id)?.toilet
+    fun getToilets(): List<Toilet> {
+        return _toilets.value?.values?.toList() ?: emptyList()
     }
 
-    fun getToiletsDetailed(): List<ToiletDetailed> {
-        return _toiletsDetailed.value?.values?.toList() ?: emptyList()
+    fun setUser(user: UserMain) {
+        _user.value = user
     }
 
-    fun getSelectedToilet(): ToiletDetailed? {
-        return _selectedToiletDetailedId.value?.let { getToiletDetailedById(it) }
+    fun setUsers(users: HashMap<Int, User>) {
+        _users.value = users
     }
 
-    fun setSelectedToiletDetailed(toiletDetailedId: Int) {
-        _selectedToiletDetailedId.value = toiletDetailedId
+    fun setToilet(toilet: Toilet) {
+        _toilets.value?.set(toilet.id!!, toilet)
     }
 
-    fun clearSelectedToilet() {
-        _selectedToiletDetailedId.value = null
-    }
-
-    fun setFromOutside(value: Boolean) {
-        _fromOutside.value = value
-    }
-
-    fun getFromOutside(): Boolean {
-        return _fromOutside.value!!
+    fun setToilets(toilets: HashMap<Int, Toilet>) {
+        _toilets.value = toilets
     }
 }
