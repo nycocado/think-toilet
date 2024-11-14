@@ -4,7 +4,7 @@ import pt.iade.ei.thinktoilet.models.Comment
 import pt.iade.ei.thinktoilet.models.Position
 import pt.iade.ei.thinktoilet.models.RatingCategory
 import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.models.UserForeigner
+import pt.iade.ei.thinktoilet.models.User
 import pt.iade.ei.thinktoilet.models.UserMain
 import java.time.LocalDateTime
 
@@ -24,60 +24,23 @@ fun generateRandomPosition(): Position {
     )
 }
 
-fun generateRandomToilet(): Toilet{
+fun generateRandomDistance(): Double {
+    return (0..5000).random().toDouble()
+}
+
+fun generateRandomToilet(id: Int = (1..100).random(), numComments: Int = (1..40).random()): Toilet {
     return Toilet(
-        id = 1,
-        name = "Toilet ${(0..100).random()}",
+        id = id,
+        name = "Toilet $id",
         address = "Address ${(0..100).random()}",
         ratingCategory = generateRandomRatingCategory(),
         accessibility = (0..1).random() == 1,
         babyChangingStation = (0..1).random() == 1,
         position = generateRandomPosition(),
         numComments = 0,
-        comments = emptyList(),
         googlePlaceId = "0",
+        comments = generateCommentsList(numComments),
         distance = generateRandomDistance()
-    )
-}
-
-fun generateRandomToiletWithComments(): Toilet {
-    val toilet = generateRandomToilet()
-    val comments = mutableListOf<Comment>()
-    for (i in 1..(1..15).random()) {
-        comments.add(generateComment())
-    }
-    toilet.comments = comments
-    toilet.numComments = comments.size
-    return toilet
-}
-
-fun generateRandomToilets(numToilets: Int): List<Toilet> {
-    val toilets = mutableListOf<Toilet>()
-    for (i in 1..numToilets) {
-        toilets.add(generateRandomToilet())
-    }
-    return toilets
-}
-
-fun generateRandomToiletsWithComments(numToilets: Int): List<Toilet> {
-    val toilets = mutableListOf<Toilet>()
-    for (i in 1..numToilets) {
-        toilets.add(generateRandomToiletWithComments())
-    }
-    return toilets
-}
-
-fun generateRandomDistance(): Double {
-    return (0..5000).random().toDouble()
-}
-
-fun generateUser(): UserForeigner {
-    return UserForeigner(
-        id = (0..100).random(),
-        name = "Luan Ribeiro",
-        iconId = 1,
-        numComments = (0..200).random(),
-        points = (0..10000).random(),
     )
 }
 
@@ -85,7 +48,7 @@ fun generateComment(): Comment {
     return Comment(
         id = (0..100).random(),
         toiletId = 1,
-        userForeigner = generateUser(),
+        userId = 1,
         rate = (0..5).random().toFloat(),
         text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac varius ex. Morbi vitae fermentum dui. Sed in laoreet massa. Donec sed pretium ipsum. Phasellus diam nunc, hendrerit laoreet imperdiet sit amet, ornare ut diam. Sed augue nisl, sollicitudin id dui sit amet, auctor faucibus odio. Nulla hendrerit gravida lacus ut aliquet.",
         ratingCategory = generateRandomRatingCategory(),
@@ -95,13 +58,19 @@ fun generateComment(): Comment {
     )
 }
 
-fun generateUserMain(): UserMain {
-    return UserMain(
-        id = (0..100).random(),
-        name = "Lohanne Guedes",
-        iconId = (0..100).random(),
+fun generateUser(): User {
+    return User(
+        id = 1,
+        name = "Luan Ribeiro",
+        iconId = 1,
         numComments = (0..200).random(),
         points = (0..10000).random(),
+    )
+}
+
+fun generateUserMain(): UserMain {
+    return UserMain(
+        user = generateUser(),
         email = "Lohanneguedes@fake.com",
         password = "nothing_here",
         position = generateRandomPosition(),
@@ -117,3 +86,22 @@ fun generateCommentsList(numComments: Int = (10..40).random()): List<Comment> {
     return commentsList
 }
 
+fun generateRandomToilets(
+    numToilets: Int = (10..20).random(),
+    numComments: Int = (10..40).random()
+): List<Toilet> {
+    val toilets = mutableListOf<Toilet>()
+    toilets.add(generateRandomToilet(0))
+    for (i in 1..numToilets) {
+        toilets.add(generateRandomToilet(numComments = numComments))
+    }
+    return toilets
+}
+
+fun generateUsers(numUsers: Int): List<User> {
+    val users = mutableListOf<User>()
+    for (i in 1..numUsers) {
+        users.add(generateUser())
+    }
+    return users
+}

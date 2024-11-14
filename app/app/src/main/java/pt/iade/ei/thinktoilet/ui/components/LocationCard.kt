@@ -2,7 +2,6 @@ package pt.iade.ei.thinktoilet.ui.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,7 +20,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.models.Toilet
 import pt.iade.ei.thinktoilet.models.distanceToString
 import pt.iade.ei.thinktoilet.tests.generateRandomToilet
@@ -29,10 +27,8 @@ import pt.iade.ei.thinktoilet.tests.generateRandomToilet
 @Composable
 fun LocationCard(
     toilet: Toilet,
-    onClick: (Toilet) -> Unit
+    onClick: (Int) -> Unit
 ) {
-    val scope = rememberCoroutineScope()
-
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -40,11 +36,6 @@ fun LocationCard(
                 horizontal = 20.dp,
                 vertical = 8.dp
             )
-            .clickable {
-                scope.launch {
-                    onClick(toilet)
-                }
-            }
             .border(
                 width = 2.dp,
                 color = Color.LightGray,
@@ -57,7 +48,10 @@ fun LocationCard(
             disabledContainerColor = MaterialTheme.colorScheme.surfaceContainerLowest.copy(alpha = 0.5f),
             disabledContentColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
         ),
-        elevation = CardDefaults.cardElevation(2.dp)
+        elevation = CardDefaults.cardElevation(2.dp),
+        onClick = {
+            onClick(toilet.id!!)
+        }
     ) { // Container (Serve para aplicar o border radius)
         Row(
             modifier = Modifier
@@ -118,7 +112,7 @@ fun LocationCard(
 @Composable
 fun LocationCardPreview() {
     LocationCard(
-        toilet = generateRandomToilet(),
+        toilet = generateRandomToilet(numComments = 10),
         onClick = {}
     )
 }

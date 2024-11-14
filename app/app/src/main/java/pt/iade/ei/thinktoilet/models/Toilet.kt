@@ -11,8 +11,8 @@ data class Toilet(
     val babyChangingStation: Boolean,
     val position: Position,
     var numComments: Int,
-    var comments: List<Comment>,
     val googlePlaceId: String,
+    var comments: List<Comment>,
     val distance: Double
 ) : Serializable {
     fun getAverageRating(): Float {

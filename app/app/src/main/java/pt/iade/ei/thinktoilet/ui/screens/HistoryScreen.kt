@@ -10,18 +10,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import pt.iade.ei.thinktoilet.models.Toilet
+import pt.iade.ei.thinktoilet.tests.generateRandomToilets
 import pt.iade.ei.thinktoilet.ui.components.HistoryCard
 import pt.iade.ei.thinktoilet.viewmodels.LocalViewModel
 
 @Composable
 fun HistoryScreen(
-    navController: NavController = rememberNavController(),
-    viewModel: LocalViewModel = viewModel()
+    onNavigateToHomeScreen : (Int?) -> Unit = {},
+    toilets: List<Toilet> = emptyList()
 ) {
-    val toilets = viewModel.toilets
-
+    val viewModel: LocalViewModel = viewModel()
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -31,14 +30,8 @@ fun HistoryScreen(
             items(toilets) { toilet ->
                 HistoryCard(
                     toilet = toilet,
-                    onClick = { selectedToilet ->
-                        viewModel.selectedToilet = selectedToilet
-                        navController.navigate("home") {
-                            popUpTo(navController.graph.startDestinationId) {
-                                inclusive = true
-                            }
-                            launchSingleTop = false
-                        }
+                    onClick = { selectedToiletId ->
+                        onNavigateToHomeScreen(selectedToiletId)
                     }
                 )
             }
@@ -50,5 +43,7 @@ fun HistoryScreen(
 @Preview(showBackground = true)
 @Composable
 fun HistoryPreview() {
-    HistoryScreen()
+    HistoryScreen(
+        toilets = generateRandomToilets(15)
+    )
 }

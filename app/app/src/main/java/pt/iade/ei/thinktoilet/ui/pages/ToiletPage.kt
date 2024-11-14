@@ -1,4 +1,4 @@
-package pt.iade.ei.thinktoilet.ui.components
+package pt.iade.ei.thinktoilet.ui.pages
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -12,7 +12,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,7 +23,10 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.R
 import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.tests.generateRandomToiletWithComments
+import pt.iade.ei.thinktoilet.tests.generateRandomToilet
+import pt.iade.ei.thinktoilet.ui.components.Comment
+import pt.iade.ei.thinktoilet.ui.components.ProgressBar
+import pt.iade.ei.thinktoilet.ui.components.Stars
 import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 
 @Composable
@@ -195,11 +197,9 @@ fun ToiletRating(toilet: Toilet) {
 @Preview(showBackground = true)
 @Composable
 fun ToiletPagePreview() {
-    AppTheme (
-        dynamicColor = false
-    ){
+    AppTheme {
         ToiletPage(
-            toilet = generateRandomToiletWithComments()
+            toilet = generateRandomToilet(numComments = 10)
         )
     }
 }
