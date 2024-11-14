@@ -89,29 +89,19 @@ fun generateCommentsList(numComments: Int = (10..40).random()): List<Comment> {
 fun generateRandomToilets(
     numToilets: Int = (10..20).random(),
     numComments: Int = (10..40).random()
-): HashMap<Int, Toilet> {
-    val toilets = hashMapOf<Int, Toilet>()
-    toilets[1] = generateRandomToilet(1, numComments)
+): List<Toilet> {
+    val toilets = mutableListOf<Toilet>()
+    toilets.add(generateRandomToilet(0))
     for (i in 1..numToilets) {
-        val toilet: Toilet = generateRandomToilet(numComments = numComments)
-        if(toilets.keys.contains(toilet.id)) continue
-        toilets[toilet.id!!] = toilet
+        toilets.add(generateRandomToilet(i, numComments))
     }
     return toilets
 }
 
-fun generateRandomToiletsToList (
-    numToilets: Int = (10..20).random(),
-    numComments: Int = (10..40).random()
-): List<Toilet> {
-    return generateRandomToilets(numToilets, numComments).values.toList()
-}
-
-fun generateUsers(numUsers: Int): HashMap<Int, User> {
-    val users = hashMapOf<Int, User>()
+fun generateUsers(numUsers: Int): List<User> {
+    val users = mutableListOf<User>()
     for (i in 1..numUsers) {
-        val user: User = generateUser()
-        users[user.id!!] = user
+        users.add(generateUser())
     }
     return users
 }

@@ -1,17 +1,12 @@
 package pt.iade.ei.thinktoilet.ui.screens
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.SheetValue
-import androidx.compose.material3.Surface
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
@@ -20,8 +15,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
@@ -29,6 +22,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 import pt.iade.ei.thinktoilet.models.Toilet
+import pt.iade.ei.thinktoilet.ui.components.CustomDragHandle
 import pt.iade.ei.thinktoilet.ui.components.LocationCard
 import pt.iade.ei.thinktoilet.ui.navegation.BottomSheetNavigation
 import pt.iade.ei.thinktoilet.ui.navegation.Routes
@@ -60,7 +54,7 @@ fun HomeScreen(
 
     LaunchedEffect(selectedToiletId) {
         if (selectedToiletId != null) {
-            navController.navigate(Routes.HomeToiletDetail(selectedToiletId))
+            navController.navigate(Routes.homeToiletDetail(selectedToiletId))
         }
     }
 
@@ -81,6 +75,7 @@ fun HomeScreen(
             }
         }
     }
+
     CompositionLocalProvider(
         LocalNavHostController provides navController
     ) {
@@ -111,16 +106,11 @@ fun ToiletDetail(
     viewModel: LocalViewModel = viewModel(),
     toiletId: Int,
 ) {
-    val toilet = viewModel.getToilet(toiletId)
+    val toilet = viewModel.toilets.value?.get(toiletId)
     LazyColumn {
         item {
             ToiletPage(toilet = toilet!!) {
-                navController.navigate("rating") {
-                    popUpTo(navController.graph.startDestinationId) {
-                        inclusive = false
-                    }
-                    launchSingleTop = true
-                }
+                navController.navigate("rating")
             }
         }
     }
@@ -138,30 +128,5 @@ fun ToiletList(
                 onClick = onToiletSelected
             )
         }
-    }
-}
-
-@Composable
-fun CustomDragHandle(
-    verticalPadding: Dp = 14.dp,
-    color: Color = MaterialTheme.colorScheme.outline,
-    shape: CornerBasedShape = MaterialTheme.shapes.extraLarge,
-    width: Dp = 40.dp,
-    height: Dp = 4.dp,
-    onClick: () -> Unit = {}
-) {
-    Surface(
-        modifier = Modifier
-            .padding(vertical = verticalPadding)
-            .clickable { onClick() },
-        color = color,
-        shape = shape
-    ) {
-        Box(
-            Modifier.size(
-                width = width,
-                height = height
-            )
-        )
     }
 }

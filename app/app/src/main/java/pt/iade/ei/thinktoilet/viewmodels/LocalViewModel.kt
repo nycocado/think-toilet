@@ -10,51 +10,19 @@ import pt.iade.ei.thinktoilet.tests.generateRandomToilets
 import pt.iade.ei.thinktoilet.tests.generateUserMain
 import pt.iade.ei.thinktoilet.tests.generateUsers
 
-class LocalViewModel : ViewModel() {
-    private val _user = MutableLiveData<UserMain>()
-    val user: LiveData<UserMain> get() = _user
+class LocalViewModel() : ViewModel() {
+    private val _userMain = MutableLiveData<UserMain>()
+    val userMain: LiveData<UserMain> get() = _userMain
 
-    private val _users = MutableLiveData<HashMap<Int, User>>()
-    val users: LiveData<HashMap<Int, User>> get() = _users
+    private val _users = MutableLiveData<List<User>>()
+    val users: LiveData<List<User>> get() = _users
 
-    private val _toilets = MutableLiveData<HashMap<Int, Toilet>>()
-    val toilets: LiveData<HashMap<Int, Toilet>> get() = _toilets
+    private val _toilets = MutableLiveData<List<Toilet>>()
+    val toilets: LiveData<List<Toilet>> get() = _toilets
 
     init {
-        _user.value = generateUserMain()
+        _userMain.value = generateUserMain()
         _users.value = generateUsers(10)
         _toilets.value = generateRandomToilets(20)
-    }
-
-    fun getUserMain(): UserMain {
-        return _user.value!!
-    }
-
-    fun getUser(id: Int): User? {
-        return _users.value?.get(id)
-    }
-
-    fun getToilet(id: Int): Toilet? {
-        return _toilets.value?.get(id)
-    }
-
-    fun getToilets(): List<Toilet> {
-        return _toilets.value?.values?.toList() ?: emptyList()
-    }
-
-    fun setUser(user: UserMain) {
-        _user.value = user
-    }
-
-    fun setUsers(users: HashMap<Int, User>) {
-        _users.value = users
-    }
-
-    fun setToilet(toilet: Toilet) {
-        _toilets.value?.set(toilet.id!!, toilet)
-    }
-
-    fun setToilets(toilets: HashMap<Int, Toilet>) {
-        _toilets.value = toilets
     }
 }

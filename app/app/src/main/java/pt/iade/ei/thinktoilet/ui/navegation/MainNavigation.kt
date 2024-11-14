@@ -20,13 +20,13 @@ fun MainNavigation(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Routes.Home
+        startDestination = Routes.HOME
     ) {
         homeNavScreen(navController, viewModel)
         historyNavScreen(
-            viewModel.getToilets(),
+            viewModel.toilets.value!!,
             onNavigateToHomeScreen = { selectedToiletId ->
-                navController.navigate(Routes.HomeToiletDetail(selectedToiletId!!)) {
+                navController.navigate(Routes.homeToiletDetail(selectedToiletId!!)) {
                     popUpTo(navController.graph.startDestinationId) {
                         inclusive = false
                     }
@@ -45,7 +45,7 @@ private fun NavGraphBuilder.homeNavScreen(
     navController: NavHostController,
     viewModel: LocalViewModel
 ) {
-    composable(Routes.Home) {
+    composable(Routes.HOME) {
         HomeScreen(mainNavController = navController, viewModel = viewModel)
     }
 }
@@ -54,7 +54,7 @@ private fun NavGraphBuilder.historyNavScreen(
     toilets: List<Toilet> = emptyList(),
     onNavigateToHomeScreen: (Int?) -> Unit,
 ) {
-    composable(Routes.History) {
+    composable(Routes.HISTORY) {
         HistoryScreen(onNavigateToHomeScreen, toilets)
     }
 }
@@ -63,7 +63,7 @@ private fun NavGraphBuilder.profileNavScreen(
     navController: NavHostController,
     viewModel: LocalViewModel
 ) {
-    composable(Routes.Profile) {
+    composable(Routes.PROFILE) {
         ProfileScreen(navController = navController, viewModel = viewModel)
     }
 }
@@ -72,7 +72,7 @@ private fun NavGraphBuilder.ratingNavScreen(
     navController: NavHostController,
     viewModel: LocalViewModel
 ) {
-    composable(Routes.Rating) {
+    composable(Routes.RATING) {
         RatingScreen(navController = navController, viewModel = viewModel)
     }
 }
@@ -82,7 +82,7 @@ private fun NavGraphBuilder.homeToiletDetailNavScreen(
     navController: NavHostController,
     viewModel: LocalViewModel
 ) {
-    composable(Routes.HomeToiletDetail) {
+    composable(Routes.HOME_TOILET_DETAIL) {
         val toiletId = it.arguments?.getString("toiletId")!!.toInt()
         HomeScreen(
             mainNavController = navController,

@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import pt.iade.ei.thinktoilet.models.Toilet
-import pt.iade.ei.thinktoilet.tests.generateRandomToiletsToList
+import pt.iade.ei.thinktoilet.tests.generateRandomToilets
 import pt.iade.ei.thinktoilet.ui.components.HistoryCard
 import pt.iade.ei.thinktoilet.viewmodels.LocalViewModel
 
@@ -44,6 +44,6 @@ fun HistoryScreen(
 @Composable
 fun HistoryPreview() {
     HistoryScreen(
-        toilets = generateRandomToiletsToList()
+        toilets = generateRandomToilets(15)
     )
 }

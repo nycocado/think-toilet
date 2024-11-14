@@ -27,7 +27,7 @@ fun ProfileScreen(
         LazyColumn {
             item {
                 ProfilePage(
-                    userMain = viewModel.getUserMain(),
+                    userMain = viewModel.userMain.value!!,
                 )
             }
         }

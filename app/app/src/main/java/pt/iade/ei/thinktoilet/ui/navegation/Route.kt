@@ -10,13 +10,13 @@ import androidx.compose.material.icons.outlined.Person
 import androidx.compose.ui.graphics.vector.ImageVector
 
 object Routes{
-    const val Home = "home"
-    const val History = "history"
-    const val Profile = "profile"
-    const val Rating = "rating"
-    const val HomeToiletDetail = "home/{toiletId}"
+    const val HOME = "home"
+    const val HISTORY = "history"
+    const val PROFILE = "profile"
+    const val RATING = "rating"
+    const val HOME_TOILET_DETAIL = "home/{toiletId}"
 
-    fun HomeToiletDetail(toiletId: Int) = "home/$toiletId"
+    fun homeToiletDetail(toiletId: Int) = "home/$toiletId"
 }
 
 sealed class NavRoute(
@@ -32,7 +32,7 @@ sealed class NavRoute(
         selectedIcon = Icons.Filled.LocationOn,
         unselectedIcon = Icons.Outlined.LocationOn,
         hasNews = false,
-        route = Routes.Home
+        route = Routes.HOME
     )
 
     data object History : NavRoute(
@@ -40,7 +40,7 @@ sealed class NavRoute(
         selectedIcon = Icons.Filled.Info,
         unselectedIcon = Icons.Outlined.Info,
         hasNews = false,
-        route = Routes.History
+        route = Routes.HISTORY
     )
 
     data object Profile : NavRoute(
@@ -48,7 +48,7 @@ sealed class NavRoute(
         selectedIcon = Icons.Filled.Person,
         unselectedIcon = Icons.Outlined.Person,
         hasNews = false,
-        route = Routes.Profile
+        route = Routes.PROFILE
     )
 }
 

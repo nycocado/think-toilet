@@ -27,7 +27,7 @@ import pt.iade.ei.thinktoilet.ui.theme.AppTheme
 @Composable
 fun HistoryCard(
     toilet: Toilet,
-    onClick: (Int?) -> Unit = {}
+    onClick: (Int) -> Unit = {}
 ) {
     Card(
         modifier = Modifier
@@ -50,7 +50,7 @@ fun HistoryCard(
         ),
         elevation = CardDefaults.cardElevation(2.dp),
         onClick = {
-            onClick(toilet.id)
+            onClick(toilet.id!!)
         }
     ) {
         Row(

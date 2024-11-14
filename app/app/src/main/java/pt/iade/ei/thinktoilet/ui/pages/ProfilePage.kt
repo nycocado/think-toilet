@@ -93,7 +93,7 @@ fun ProfilePage(
         Column {
             val viewModel: LocalViewModel = viewModel()
             for (comment in userMain.historyComment) {
-                ProfileToiletReviews(comment, viewModel.getToilet(comment.toiletId!!)!!)
+                ProfileToiletReviews(comment, viewModel.toilets.value?.get(comment.toiletId)!!)
             }
         }
     }
