@@ -339,7 +339,7 @@ Outro objetivo central é o incentivo à participação ativa, implementando um 
 ### Modelo Entidade-Relacionamento
 ![Modelo Entidade-Relacionamento](documents/segunda_entrega/diagramas/er.png)  
 ### Documento de Referência
-[Dicionário de Dados](documents/g04-relatoriobd.pdf)
+[BD Report - Dicionario e Guia de Dados](documents/g04-relatoriobd.pdf)
 
 # REST API
 ## Introdução
@@ -349,11 +349,14 @@ Os dados são entregues em formato JSON, garantindo respostas consistentes e fac
 
 ## Endpoints
 ### Mostrar usuários
-- URL:  
+- **URL:**  
 `/users`  
-- METHOD:  
+- **METHOD:**  
 `GET`  
-- SUCCESS RESPONSE:  
+- **URL PARAMETHERS:**  
+  - Optional:  
+  `ids=[integers]` (default: all users)
+- **SUCCESS RESPONSE:**  
   ```json
   [
     {
@@ -365,7 +368,7 @@ Os dados são entregues em formato JSON, garantindo respostas consistentes e fac
     },
   ]
   ```
-- ERROR RESPONSE:
+- **ERROR RESPONSE:**
   ```json
   {
     "status": 500,
@@ -373,10 +376,12 @@ Os dados são entregues em formato JSON, garantindo respostas consistentes e fac
     "timestamp": [datetime]
   }
   ``` 
-- SAMPLE CALL:  
+- **SAMPLE CALL:**  
   ```kotlin
   @GET("users")
-  suspend fun getUsers(): List<User>
+  suspend fun getUsers(
+      @Query("ids") ids: List<Int>? = null
+  ): List<User>
   ```
 
 ### Mostrar usuário por ID
@@ -509,6 +514,9 @@ Os dados são entregues em formato JSON, garantindo respostas consistentes e fac
 `/toilets`
 - **METHOD:**  
 `GET` 
+- **URL PARAMETHERS:**  
+  - Optional:  
+  `ids=[integers]` (default: all toilets)
 - **SUCCESS RESPONSE:**  
   ```json
   [
@@ -548,7 +556,9 @@ Os dados são entregues em formato JSON, garantindo respostas consistentes e fac
 - **SAMPLE CALL:**
   ```kotlin
   @GET("toilets")
-  suspend fun getToilets(): List<Toilet>
+  suspend fun getToilets(
+      @Query("ids") ids: List<Int>? = null,
+  ): List<Toilet>
   ```
 
 ### Mostrar casas de banho de forma paginada
